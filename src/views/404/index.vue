@@ -12,13 +12,13 @@ function goHome() {
 <template>
   <div class="notFound">
     <icon icon="i-local-404" size="50%" />
-    <a-button
+    <n-button
       size="large"
       type="primary"
       @click="goHome"
     >
       返回首页
-    </a-button>
+    </n-button>
   </div>
 </template>
 
