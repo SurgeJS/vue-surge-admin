@@ -12,6 +12,8 @@ useGlobalInitialize()
 
 // 全局订阅
 useGlobalSubscribe()
+console.log('test')
+console.log('test')
 </script>
 
 <template>
