@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"/>
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico"/>
+  <meta
+    name="viewport"
+    content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0"
+  />
+  <title><%= title %></title>
+</head>
+<body>
+<div id="app">
+  <style>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+      }
+
+      html,
+      body,
+      #app {
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          font-family:Fantasy, Microsoft YaHei, Arial, sans-serif;
+      }
+
+      #app-loading {
+          position: relative;
+          width: 100vw;
+          height: 100vh;
+          box-sizing: border-box;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          flex-direction: column;
+      }
+
+      .loading-container {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 20px;
+          animation: scale .2s 1 ease-in-out;
+      }
+
+      .loading {
+          display: block;
+          height: 20px;
+          width: 125px;
+          margin-top: 10px;
+      }
+
+      #app-loading.dark {
+          background: #111620;
+          color: white;
+      }
+
+      #app-loading.light {
+          background: white;
+          color: #464e62;
+      }
+
+      .loading > div {
+          display: inline-block;
+          float: none;
+          border: 0 solid currentColor;
+          box-sizing: border-box;
+          background: linear-gradient(#6675ff, 30%, #574cf5);
+          white-space: nowrap;
+          position: absolute;
+          width: 20px;
+          height: 20px;
+          border-radius: 100%;
+          animation: ball-running-dots-animate 2s linear infinite;
+      }
+
+      .loading > div:nth-child(1) {
+          animation-delay: 0s;
+      }
+
+      .loading > div:nth-child(2) {
+          animation-delay: -0.4s;
+      }
+
+      .loading > div:nth-child(3) {
+          animation-delay: -0.8s;
+      }
+
+      .loading > div:nth-child(4) {
+          animation-delay: -1.2s;
+      }
+
+      .loading > div:nth-child(5) {
+          animation-delay: -1.6s;
+      }
+
+      .loading > div:nth-child(6) {
+          animation-delay: -2s;
+      }
+
+      .loading > div:nth-child(7) {
+          animation-delay: -2.4s;
+      }
+
+      .loading > div:nth-child(8) {
+          animation-delay: -2.8s;
+      }
+
+      .loading > div:nth-child(9) {
+          animation-delay: -3.2s;
+      }
+
+      .loading > div:nth-child(10) {
+          animation-delay: -3.6s;
+      }
+
+      @keyframes ball-running-dots-animate {
+          0%,
+          100% {
+              transform: translateY(0) translateX(500%);
+          }
+
+          80% {
+              transform: translateY(0) translateX(0);
+          }
+
+          85% {
+              transform: translateY(-125%) translateX(0);
+          }
+
+          95% {
+              transform: translateY(-100%) translateX(500%);
+          }
+      }
+
+      .title {
+          font-size: 28px;
+          font-weight: bold;
+          font-family:Roboto, Microsoft YaHei, Arial, sans-serif;
+          letter-spacing: 3px;
+      }
+
+      @keyframes scale {
+          from {
+              opacity: 0;
+              transform: scale(0);
+          }
+          to {
+              opacity: 1;
+              transform: scale(1);
+          }
+      }
+  </style>
+  <div id="app-loading" class="transition">
+    <div class="loading-container">
+      <img width="160" src="/logo.svg" alt="<%= title %>">
+      <div class="loading">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <p class="title"><%= title %></p>
+    </div>
+  </div>
+  <script>
+      const appJson = localStorage.getItem('SLEEK_APP')
+      const app = appJson ? JSON.parse(appJson) : undefined
+      const theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+      const loadingDom = document.querySelector('#app-loading')
+      if (!app) {
+          loadingDom.className = theme
+      } else {
+          loadingDom.className = app.themeMode === 'system' ? theme : app.themeMode
+      }
+  </script>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>

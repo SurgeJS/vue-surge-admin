@@ -1,0 +1,393 @@
+<script setup lang="ts">
+import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
+import type { FormItemRule } from 'naive-ui'
+import useRenderIcon from '@/hooks/components/use-render-icon'
+import { reactive } from 'vue'
+
+const { RenderUnoIcon } = useRenderIcon()
+
+const area = [
+  {
+    value: 'zhejiang',
+    label: '浙江',
+    children: [
+      {
+        value: 'hangzhou',
+        label: '杭州',
+        children: [
+          {
+            value: 'xihu',
+            label: '西湖',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    value: 'jiangsu',
+    label: '江苏',
+    children: [
+      {
+        value: 'nanjing',
+        label: '南京',
+        children: [
+          {
+            value: 'zhonghuamen',
+            label: '中华门',
+          },
+        ],
+      },
+    ],
+  },
+]
+
+const form = ref({
+  name: {
+    a: {
+      b: '',
+    },
+  },
+  email: 'xxx',
+  age: null,
+  password: '',
+  confirmPassword: '',
+  status: null,
+  skill: null,
+  date: null,
+  dateRange: [],
+  startTime: null,
+  endTime: null,
+  area: null,
+  organization: null,
+  score: null,
+  show: true,
+  description: null,
+  like: [],
+  tags: ['小菜鸡', '码农'],
+  color: null,
+  mention: null,
+  workPlace: 0,
+  schedule: 50,
+  userList: [],
+})
+
+const emailAutoComplete = computed(() => ['@gmail.com', '@163.com', '@qq.com'].map((v) => {
+  const prefix = form.value.email?.split('@')[0]
+  return {
+    label: prefix + v,
+    value: prefix + v,
+  }
+}),
+)
+const schema = reactive<DefineSchema<typeof form.value>[]>([
+  {
+    field: 'name.a.b',
+    label: '名称',
+    component: 'input',
+    tooltip: '这是一个Tooltip',
+    placeholder: '这个placeholder会覆盖到自动生成的placeholder',
+    componentContent: {
+      prefix: () => RenderUnoIcon('i-ant-design:user-outlined'),
+    },
+    showRequireMark: false,
+  },
+  {
+    field: 'email',
+    label: '邮箱',
+    component: 'autoComplete',
+    options: emailAutoComplete,
+    rule: 'mail',
+  },
+  {
+    field: 'age',
+    label: '年龄',
+    component: 'inputNumber',
+  },
+  {
+    field: 'password',
+    label: '密码',
+    component: 'input',
+    componentProps: {
+      type: 'password',
+      showPasswordOn: 'click',
+    },
+    gridItemProps: 12,
+  },
+  {
+    field: 'confirmPassword',
+    label: '确认密码',
+    component: 'input',
+    first: true,
+    componentProps: {
+      type: 'password',
+      showPasswordOn: 'click',
+      disabled: computed(() => !form.value.password),
+    },
+    rule: [
+      {
+        required: true,
+        message: '请再次输入密码',
+        trigger: 'blur',
+      },
+      {
+        message: '俩次输入密码不一致',
+        trigger: ['blur', 'input'],
+        validator: (rule: FormItemRule, value: string) => {
+          return (
+            !!form.value.password
+            && form.value.password.startsWith(value)
+            && form.value.password.length >= value.length
+          )
+        },
+      },
+    ],
+    gridItemProps: 12,
+  },
+  {
+    field: 'status',
+    label: '状态',
+    component: 'select',
+    options: [
+      {
+        label: '未完成',
+        value: 0,
+      },
+      {
+        label: '已完成',
+        value: 1,
+      },
+    ],
+  },
+  {
+    field: 'like',
+    label: '喜欢什么呢？',
+    component: 'select',
+    componentProps: {
+      multiple: true,
+    },
+    options: [
+      {
+        label: '读书',
+        value: 0,
+      },
+      {
+        label: '游戏',
+        value: 1,
+      },
+      {
+        label: '写代码',
+        value: 2,
+      },
+    ],
+  },
+  {
+    field: 'date',
+    label: '日期',
+    component: 'datePicker',
+    showRequireMark: true,
+  },
+  {
+    field: 'tags',
+    label: '标签',
+    component: 'dynamicTags',
+  },
+  {
+    field: 'color',
+    label: '颜色',
+    component: 'colorPicker',
+  },
+  {
+    field: 'mention',
+    label: '提及',
+    component: 'mention',
+    placeholder: '输入@符号进行提及',
+    options: [
+      {
+        label: 'Surge',
+        value: 'Surge',
+      },
+      {
+        label: '呼和浩特',
+        value: '呼和浩特',
+      },
+      {
+        label: '内蒙古',
+        value: '内蒙古',
+      },
+    ],
+  },
+  {
+    field: 'skill',
+    label: '技能',
+    component: 'checkboxGroup',
+    options: [
+      {
+        label: 'Vue',
+        value: 0,
+      },
+      {
+        label: 'React',
+        disabled: true,
+        value: 1,
+      },
+      {
+        label: 'Naive',
+        value: 2,
+      },
+      {
+        label: 'VueUse',
+        value: 3,
+      },
+      {
+        label: 'VueQuery',
+        value: 4,
+      },
+      {
+        label: 'Axios',
+        value: 5,
+      },
+      {
+        label: 'Unocss',
+        value: 6,
+      },
+    ],
+  },
+  {
+    field: 'workPlace',
+    label: '工作地点',
+    component: 'radioGroup',
+    options: [
+      {
+        label: '北京',
+        value: 0,
+      },
+      {
+        label: '呼和浩特',
+        value: 1,
+      },
+      {
+        label: '上海',
+        value: 2,
+      },
+    ],
+  },
+  {
+    field: 'score',
+    label: '评分',
+    component: 'rate',
+    gridItemProps: 4,
+  },
+  {
+    field: 'show',
+    label: '启用',
+    component: 'switch',
+    gridItemProps: 4,
+  },
+  {
+    field: 'schedule',
+    label: '进度',
+    component: 'slider',
+    gridItemProps: 24,
+  },
+
+  {
+    field: 'startTime',
+    label: '开始时间',
+    component: 'timePicker',
+    gridItemProps: 12,
+  },
+  {
+    field: 'endTime',
+    label: '结束时间',
+    component: 'timePicker',
+    gridItemProps: 12,
+  },
+  {
+    field: 'userList',
+    label: '用户',
+    component: 'transfer',
+    options: Array.from({ length: 100 }, (v, i) => {
+      return {
+        value: i,
+        label: `用户${i}`,
+      }
+    }),
+    gridItemProps: 24,
+  },
+  {
+    field: 'area',
+    label: '地区',
+    component: 'cascader',
+    options: area,
+    gridItemProps: 12,
+  },
+  {
+    field: 'organization',
+    label: '组织机构',
+    component: 'treeSelect',
+    componentProps: {
+      keyField: 'value',
+    },
+    options: area,
+    gridItemProps: 12,
+  },
+  {
+    slot: 'test2',
+    gridItemProps: 12,
+  },
+  {
+    label: '自定义插槽',
+    contentSlot: 'test',
+    gridItemProps: 12,
+  },
+  {
+    field: 'description',
+    label: '描述',
+    component: 'input',
+    componentProps: {
+      type: 'textarea',
+    },
+    gridItemProps: 24,
+  },
+])
+</script>
+
+<template>
+  <n-split
+    direction="horizontal"
+    :default-size="0.20"
+    :max="0.80"
+    :min="0.20"
+  >
+    <template #1>
+      <div class="h-full overflow-auto p-24px">
+        <pre>{{ JSON.stringify(form, null, 2) }}</pre>
+      </div>
+    </template>
+    <template #2>
+      <div class="h-full overflow-auto p-24px">
+        <schema-form
+          v-model:model="form"
+          v-model:schema="schema"
+          :grid-item-props="8"
+          show-require-mark
+        >
+          <template #test>
+            <div class="h-full w-full flex-center bg-primary p-5 text-white">
+              这是一个<span class="text-black">包含</span>FormItem自定义插槽
+            </div>
+          </template>
+          <template #test2>
+            <div class="h-full flex-center bg-primary p-5 text-white">
+              这是一个<span class="text-black">不包含</span>FormItem自定义插槽
+            </div>
+          </template>
+        </schema-form>
+      </div>
+    </template>
+  </n-split>
+</template>
+
+<style scoped lang="scss">
+
+</style>

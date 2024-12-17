@@ -1,0 +1,114 @@
+<!--<script setup lang="ts">-->
+<!--import { StepSchemaFormExpose, StepSchemaFormProps, StepSchemaFormSlots } from '@/components/common/SchemaForm/types/type'-->
+<!--import initialProps from '@/components/common/SchemaForm/utils/initialProps'-->
+<!--import useOmitProps from '@/hooks/common/use-omit-props'-->
+<!--import useExpose from '@/components/common/SchemaForm/hooks/useExpose'-->
+<!--import { useProvideSchemaFormContext } from '@/components/common/SchemaForm/hooks/useContext'-->
+<!--import useMethod from '@/components/common/SchemaForm/hooks/useMethod'-->
+<!--import { omit, set } from 'lodash-es'-->
+
+<!--const props = withDefaults(defineProps<StepSchemaFormProps>(), {-->
+<!--  ...initialProps,-->
+<!--  preText: '上一步',-->
+<!--  nextText: '下一步',-->
+<!--  colProps: 24-->
+<!--})-->
+<!--const slots = defineSlots<StepSchemaFormSlots>()-->
+
+<!--const model = defineModel<Recordable>('model', { required: true })-->
+<!--const active = defineModel<number>('active', { default: 1 })-->
+
+<!--const { getModelValue } = useProvideSchemaFormContext(props, model)-->
+<!--const formProps = useOmitProps(props, [ 'schema', 'active','preText','preLoading','nextText','nextLoading','stepsProps','onPre','onNext' ])-->
+<!--const formContentSlots = useOmitProps(slots, [ 'customActionButton', 'buttonAfter', 'buttonBefore' ])-->
+<!--const { formRef, commonExpose } = useExpose()-->
+<!--const { handleSubmit } = useMethod(props, commonExpose, model)-->
+
+<!--// 步骤条选项-->
+<!--const stepsItems = computed(() => props.schema?.map(item => omit(item, [ 'form' ])))-->
+
+<!--// 获取当前步骤的Model-->
+<!--const getCurrentStepModel = () => {-->
+<!--  if (!props.schema) return {}-->
+
+<!--  return props.schema[active.value]?.form.reduce<Recordable>((currentModel, item) => {-->
+<!--    if (!item.field) return currentModel-->
+<!--    const field = item.field as string-->
+<!--    set(currentModel, field, getModelValue(field))-->
+<!--    return currentModel-->
+<!--  }, {})-->
+<!--}-->
+
+<!--const handlePre = () => {-->
+<!--    props.onPre ? props.onPre(active.value,getCurrentStepModel(),commonExpose) : active.value -= 1-->
+<!--}-->
+
+<!--const handleNext = () => {-->
+<!--  if (props.onNext) {-->
+<!--    props.onNext(active.value,getCurrentStepModel(),commonExpose)-->
+<!--  } else {-->
+<!--    commonExpose.validate()-->
+<!--        .then(() => active.value += 1)-->
+<!--        .catch((err) => props.onFinishFailed?.(err))-->
+<!--  }-->
+<!--}-->
+
+<!--defineExpose<StepSchemaFormExpose>(commonExpose)-->
+<!--</script>-->
+
+<!--<template>-->
+<!--  <a-steps-->
+<!--    v-bind="props.stepsProps"-->
+<!--    :current="active-1"-->
+<!--    :items="stepsItems"-->
+<!--  />-->
+<!--  <schema-form-wrap-->
+<!--    ref="formRef"-->
+<!--    v-bind="formProps"-->
+<!--    :model="model"-->
+<!--  >-->
+<!--    <template v-for="(config,i) in props.schema" :key="i">-->
+<!--      <schema-form-content v-show="i+1 === active" :schema="config.form">-->
+<!--        <template v-for="(slot,key) in formContentSlots" #[key]="scope">-->
+<!--          <slot :name="key" v-bind="scope||{}" />-->
+<!--        </template>-->
+<!--        <a-col-->
+<!--          v-if="!props.hideActionButton"-->
+<!--          :span="24"-->
+<!--          class="flex-inline justify-end items-center gap-[12px] "-->
+<!--        >-->
+<!--          <slot name="buttonBefore" />-->
+<!--          <slot name="customActionButton">-->
+<!--            <a-button-->
+<!--              v-if="active!==1"-->
+<!--              :loading="props.preLoading"-->
+<!--              @click="handlePre"-->
+<!--            >-->
+<!--              {{ props.preText }}-->
+<!--            </a-button>-->
+<!--            <a-button-->
+<!--              v-if="active!==schema.length"-->
+<!--              :loading="props.nextLoading"-->
+<!--              @click="handleNext"-->
+<!--            >-->
+<!--              {{ props.nextText }}-->
+<!--            </a-button>-->
+<!--            <a-button-->
+<!--              v-if="active===schema.length"-->
+<!--              type="primary"-->
+<!--              :loading="props.submitLoading"-->
+<!--              @click="handleSubmit"-->
+<!--            >-->
+<!--              {{ props.submitText }}-->
+<!--            </a-button>-->
+<!--          </slot>-->
+<!--          <slot name="buttonAfter" />-->
+<!--        </a-col>-->
+<!--      </schema-form-content>-->
+<!--    </template>-->
+<!--  </schema-form-wrap>-->
+<!--</template>-->
+
+<!--<style scoped lang="scss">-->
+
+<!--</style>-->

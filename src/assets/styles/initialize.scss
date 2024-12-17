@@ -1,0 +1,50 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.fill.inverted') transparent !important;
+}
+
+html, body, #app {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background: theme('backgroundColor.layout');
+  color: theme('textColor.base');
+}
+
+ul, ol, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+svg {
+  outline: none;
+}
+
+iframe {
+  border: none;
+  display: block;
+  vertical-align: middle;
+}
+
+// 清除过度效果
+.noTransition {
+  *:not(
+  .transition,
+  .transition *,
+  .loading-container,
+  .loading-container *
+  ),
+  *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
