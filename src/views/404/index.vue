@@ -6,7 +6,6 @@ defineOptions({ name: 'NotFound' })
 const router = useRouter()
 function goHome() {
   router.push(RouterConstant.HOME_PATH)
-  console.log(2)
 }
 </script>
 
