@@ -1,6 +1,5 @@
 import type { Theme } from '@unocss/preset-uno'
 import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
-// uno.config.ts
 import { defineConfig, presetIcons, presetUno, transformerDirectives } from 'unocss'
 import AppConstant from './src/constant/app'
 

@@ -6,8 +6,8 @@ export function wrapperMetaEnv(env?: Recordable): ImportMetaEnv {
     try {
       env[envKey] = JSON.parse(envValue)
     }
+    // eslint-disable-next-line unused-imports/no-unused-vars
     catch (err) {
-      console.error(err)
       env[envKey] = envValue
     }
     return env

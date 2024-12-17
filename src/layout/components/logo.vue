@@ -4,7 +4,6 @@ import { wrapperMetaEnv } from '@/utils/env'
 import { computed } from 'vue'
 
 const { VITE_APP_TITLE } = wrapperMetaEnv()
-
 const appStore = useAppStore()
 const isHide = computed(() => (appStore.isCollapsedSidebar || appStore.layoutMode === 'mix-side') && !appStore.isSmallScreen)
 </script>
