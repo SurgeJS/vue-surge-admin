@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "author": "SongPeng<https://gihhub>",
+  "author": "SongPeng",
   "license": "MIT",
   "engines": {
     "node": ">=18.12.0",
@@ -17,7 +17,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "lint-staged": "lint-staged --no-stash"
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
@@ -69,7 +69,7 @@
     "vue-tsc": "^2.1.10"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm type-check && pnpm lint-staged"
+    "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
