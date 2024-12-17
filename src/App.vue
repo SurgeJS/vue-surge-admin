@@ -11,8 +11,7 @@ const appStore = useAppStore()
 useGlobalInitialize()
 
 // 全局订阅
-useGlobalSubscribe()
-console.log(11)
+         useGlobalSubscribe()
 </script>
 
 <template>
