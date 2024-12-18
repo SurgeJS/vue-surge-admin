@@ -22,7 +22,7 @@
   "dependencies": {
     "@ant-design/colors": "^7.1.0",
     "@iconify/utils": "^2.2.1",
-    "@tanstack/vue-query": "^5.62.7",
+    "@tanstack/vue-query": "^5.62.8",
     "@vueuse/components": "^11.3.0",
     "@vueuse/core": "^11.3.0",
     "ant-design-vue": "^4.2.6",
@@ -40,9 +40,8 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.12.0",
-    "@commitlint/cli": "^19.6.1",
     "@faker-js/faker": "^8.4.1",
-    "@iconify/json": "^2.2.284",
+    "@iconify/json": "^2.2.285",
     "@iconify/types": "^2.0.0",
     "@iconify/vue": "^4.2.0",
     "@types/node": "^22.10.2",
@@ -51,8 +50,6 @@
     "@vitejs/plugin-legacy": "^6.0.0",
     "@vitejs/plugin-vue": "^5.2.1",
     "@vitejs/plugin-vue-jsx": "^4.1.1",
-    "commitizen": "^4.3.1",
-    "cz-git": "^1.11.0",
     "eslint": "^9.17.0",
     "lint-staged": "^15.2.11",
     "naive-ui": "^2.40.3",
