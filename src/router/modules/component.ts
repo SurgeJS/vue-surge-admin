@@ -21,12 +21,5 @@ export default {
         title: '动画',
       },
     },
-    {
-      path: '/component/table',
-      component: 'view',
-      meta: {
-        title: '表格',
-      },
-    },
   ],
 } satisfies AppRouteRecordRaw
