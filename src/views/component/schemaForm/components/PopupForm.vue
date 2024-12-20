@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
+import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
 import { reactive } from 'vue'
 
 const [visible1, toggleVisible1] = useToggle()

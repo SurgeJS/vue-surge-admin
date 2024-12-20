@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SchemaFormExpose } from '@/components/common/SchemaForm/types/base.ts'
-import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
+import type { SchemaFormExpose } from '@/components/common/schema-form/types/base.ts'
+import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
 import type { FormItemRule } from 'naive-ui'
-import useRenderIcon from '@/hooks/components/use-render-icon'
+import renderIcon from '@/hooks/components/render-icon.ts'
 import { reactive } from 'vue'
 
-const { RenderUnoIcon } = useRenderIcon()
+const { RenderUnoIcon } = renderIcon()
 
 const area = [
   {

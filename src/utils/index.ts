@@ -41,7 +41,7 @@ export function temporaryClearTransition(callback: () => void, time: number = 20
 }
 
 // 异步等待
-export async function asyncWait(millisecond: number) {
+export async function asyncWait(millisecond: number = 1000) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(undefined)

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DefineGroupSchema, GroupSchemaFormExpose } from '@/components/common/SchemaForm/types/group.ts'
+import type { DefineGroupSchema, GroupSchemaFormExpose } from '@/components/common/schema-form/types/group.ts'
 import { reactive } from 'vue'
 
 const area = [
