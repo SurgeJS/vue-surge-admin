@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
-import { reactive } from 'vue'
 
 const area = [
   {
@@ -65,7 +64,7 @@ const emailAutoComplete = computed(() => ['@gmail.com', '@163.com', '@qq.com'].m
     value: prefix + v,
   }
 }))
-const schema = reactive<DefineSchema<typeof form.value>[]>([
+const schema = ref<DefineSchema<typeof form.value>[]>([
   {
     field: 'name.a.b',
     label: '用户昵称',

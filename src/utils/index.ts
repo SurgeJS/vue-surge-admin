@@ -85,3 +85,8 @@ export function scrollToElement(element: HTMLElement, behavior: ScrollBehavior =
     block,
   })
 }
+
+// 获取图片路径
+export const getImageUrl = (path: string) => {
+  return new URL(`../assets/images/${path}`, import.meta.url).href
+}

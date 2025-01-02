@@ -94,15 +94,14 @@ async function handleLogin() {
       hide-action-button
     >
       <template #action>
-        <a-flex
+        <n-flex
           class="mb-4"
-          gap="middle"
           align="center"
           justify="space-between"
         >
           <n-checkbox>记住密码</n-checkbox>
           <span class="cursor-pointer text-primary">忘记密码？</span>
-        </a-flex>
+        </n-flex>
       </template>
       <template #submit>
         <n-button

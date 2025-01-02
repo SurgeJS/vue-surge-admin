@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import useAppStore from '@/store/modules/app'
-import { wrapperMetaEnv } from '@/utils/env'
+import { getMetaEnv } from '@/utils/env'
 import { computed } from 'vue'
 
-const { VITE_APP_TITLE } = wrapperMetaEnv()
+const { VITE_APP_TITLE } = getMetaEnv()
 const appStore = useAppStore()
 const isHide = computed(() => (appStore.isCollapsedSidebar || appStore.layoutMode === 'mix-side') && !appStore.isSmallScreen)
 </script>

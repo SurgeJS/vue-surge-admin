@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import Menu from '@/layout/components/menu/index.vue'
 import useAppStore from '@/store/modules/app'
-import { wrapperMetaEnv } from '@/utils/env'
+import { getMetaEnv } from '@/utils/env'
 import { computed } from 'vue'
 
 interface Props {
@@ -12,7 +12,7 @@ defineProps<Props>()
 
 const appStore = useAppStore()
 
-const { VITE_APP_TITLE } = wrapperMetaEnv()
+const { VITE_APP_TITLE } = getMetaEnv()
 
 const thumbtackIcon = computed(() => appStore.isFixedMixSidebarDrawer
   ? 'i-ant-design:pushpin-filled'

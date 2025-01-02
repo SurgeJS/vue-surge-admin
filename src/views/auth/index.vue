@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { wrapperMetaEnv } from '@/utils/env'
+import { getMetaEnv } from '@/utils/env'
 import DynamicBackground from '@/views/auth/components/DynamicBackground.vue'
 
-const { VITE_APP_TITLE } = wrapperMetaEnv()
+const { VITE_APP_TITLE } = getMetaEnv()
 </script>
 
 <template>

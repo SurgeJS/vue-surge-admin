@@ -12,7 +12,12 @@ import { isString } from 'es-toolkit'
  * @param asyncFn 查询函数
  * @param options useQuery 配置
  */
-function paginationQuery<TResponse = any, DParams extends Recordable = Recordable>(query: Ref<PaginationParams<DParams> | DParams>, queryKey: QueryKey | string, asyncFn: (query: PaginationParams<DParams> | DParams, ...arg: any) => Promise<ResponseContent<TResponse, DParams>>, options?: Partial<UseQueryOptions<TResponse>>) {
+function paginationQuery<TResponse = any, DParams extends Recordable = Recordable>(
+  query: Ref<PaginationParams<DParams> | DParams>,
+  queryKey: QueryKey | string,
+  asyncFn: (query: PaginationParams<DParams> | DParams, ...arg: any) => Promise<ResponseContent<TResponse, DParams>>,
+  options?: Partial<UseQueryOptions<TResponse>>,
+) {
   const keys = isString(queryKey) ? [queryKey] : queryKey
 
   const pageNo = computed(() => query.value.pageNo)

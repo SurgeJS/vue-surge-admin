@@ -76,7 +76,7 @@ export type RulePresetsType = Record<RulePresets, {
 
 export type SafeComponentProps<T> = T extends Recordable ? T : never
 
-export type FormItemPropsRefs = MaybeRefs<Omit<FormItemProps, 'label' | 'rule' | 'path' | 'required'>>
+export type FormItemPropsRefs = WrapWithMaybeRef<Omit<FormItemProps, 'label' | 'rule' | 'path' | 'required'>>
 
 // 通用的选项类型
 export type OptionType =
@@ -128,7 +128,7 @@ export interface Schema<
   component?: DComponentsName
 
   // 组件属性
-  componentProps?: MaybeRefs<SafeComponentProps<ComponentsProps[UnwrapRef<DComponentsName>]>> | Recordable
+  componentProps?: WrapWithMaybeRef<SafeComponentProps<ComponentsProps[UnwrapRef<DComponentsName>]>> | Recordable
 
   // 组件内容
   componentContent?: SlotsContent

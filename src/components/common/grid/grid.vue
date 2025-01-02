@@ -7,7 +7,7 @@ import { setItemVisible } from '@/components/common/grid/utils'
 const props = withDefaults(defineProps<GridProps>(), {
   cols: 24,
   notCollapsedRows: 1,
-  responsive: 'screen',
+  responsive: 'self',
 })
 
 const { rowEl, isOverflow, displayIndexList, itemDataList, responsiveCols, responsiveXGap, responsiveYGap } = useProvideGridContext(props)

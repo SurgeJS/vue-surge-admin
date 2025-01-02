@@ -10,22 +10,22 @@ export interface ResponseError {
 }
 
 // 响应内容
-export type ResponseContent<T = any, D = any> = [ T, ResponseError?, AxiosResponse<T, D>? ]
+export type ResponseContent<TData = any, TParams = any, TDataStructure = any> = [ TData, ResponseError?, AxiosResponse<TDataStructure, TParams>? ]
 
 // axios拦截器
-export interface AxiosInterceptor<T = any> {
+export interface AxiosInterceptor<TDataStructure = any> {
   // 请求之前拦截器
   onBeforeRequest?: (config: AxiosRequestConfig) => void | Promise<void>
 
   // 响应拦截器
-  onResponse?: (response: AxiosResponse<T>) => ResponseContent<T> | Promise<ResponseContent<T>>
+  onResponse?: (response: AxiosResponse<TDataStructure>) => ResponseContent<TDataStructure> | Promise<ResponseContent<TDataStructure>>
 
   // 响应错误
   onResponseError?: (error: AxiosError) => ResponseContent | Promise<ResponseContent>
 }
 
 // axios配置
-export interface AxiosConfig<T = any> extends CreateAxiosDefaults {
+export interface AxiosConfig<TDataStructure = any> extends CreateAxiosDefaults {
   // 拦截器
-  interceptor?: AxiosInterceptor<T>
+  interceptor?: AxiosInterceptor<TDataStructure>
 }

@@ -2,7 +2,6 @@
 import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
 import type { FormItemRule } from 'naive-ui'
 import renderIcon from '@/hooks/components/render-icon.ts'
-import { reactive } from 'vue'
 
 const { RenderUnoIcon } = renderIcon()
 
@@ -79,7 +78,7 @@ const emailAutoComplete = computed(() => ['@gmail.com', '@163.com', '@qq.com'].m
   }
 }),
 )
-const schema = reactive<DefineSchema<typeof form.value>[]>([
+const schema = ref<DefineSchema<typeof form.value>[]>([
   {
     field: 'name.a.b',
     label: '名称',

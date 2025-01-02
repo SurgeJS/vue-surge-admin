@@ -1,14 +1,10 @@
-export type RowAlign = 'baseline' | 'center' | 'flex-start' | 'flex-end'
-
-export type RowJustify = 'center' | 'end' | 'start' | 'space-around' | 'space-between' | 'space-evenly'
-
 // 'self' 根据自身宽度进行响应式布局，'screen' 根据屏幕断点进行响应式布局
 export type RowResponsive = 'self' | 'screen'
 
 export type ResponsiveValue<K extends number = number> = Partial<Record<BreakpointType, K>>
 
 export interface GridProps {
-  // 列数量
+  // 列数量,默认 24
   cols?: number | ResponsiveValue
 
   // 是否折叠
@@ -28,7 +24,7 @@ export interface GridProps {
 }
 
 export interface GridItemProps {
-  // 栅格占据的列数，为 0 的时候会隐藏,大于 Grid cols 数量的时候会错位
+  // 栅格占据的列数，为 0 的时候会隐藏,大于 Grid cols 数量的时候会错位,默认 1
   span?: number | ResponsiveValue
 
   // 左侧的间隔格数

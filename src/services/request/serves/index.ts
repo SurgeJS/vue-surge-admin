@@ -1,21 +1,20 @@
 import type { ResponseContent } from '@/services/request/axios/types'
 import ServiceConstant from '@/constant/service'
-import CreateAxios from '@/services/request/axios'
+import Axios from '@/services/request/axios'
 import { handleAxiosError, handleResponseError } from '@/services/request/utils'
-import { getServiceAddress, wrapperMetaEnv } from '@/utils/env'
+import { getServicePrefixOrUrl } from '@/utils/env'
 
-const { VITE_SERVICE_CONFIG } = wrapperMetaEnv()
-const mainService = new CreateAxios<Result>({
-  baseURL: getServiceAddress('main', VITE_SERVICE_CONFIG),
+const service = new Axios<Result>({
+  baseURL: getServicePrefixOrUrl('main'),
   timeout: ServiceConstant.REQUEST_TIMEOUT,
   interceptor: {
-    onBeforeRequest() {
-
+    onBeforeRequest(config) {
+      if (config.headers)
+        config.headers.token = 1
     },
     onResponse(response) {
       const { code, msg, result } = response.data
-      const responseContent: ResponseContent<Result> = [result, undefined, response]
-
+      const responseContent: ResponseContent<Result, typeof result> = [result, undefined, response]
       // 处理响应错误
       if (ServiceConstant.SUCCESS_CODE !== code) {
         // 错误的响应内容
@@ -31,4 +30,4 @@ const mainService = new CreateAxios<Result>({
   },
 })
 
-export default mainService
+export default service

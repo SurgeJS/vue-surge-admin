@@ -10,10 +10,13 @@ let lastMessage: string | undefined
 
 // 解决重复提示
 export function handleRepeatMessage(messageContent: string, type: keyof Omit<MessageApiInjection, 'destroyAll'> = 'error') {
-  if (messageContent === lastMessage && ServiceConstant.CLOSE_REPEAT_ERROR_MESSAGE)
-    return
-  void window.$message[type](messageContent, { onAfterLeave: () => lastMessage = undefined })
-  lastMessage = messageContent
+  console.log(messageContent === lastMessage && ServiceConstant.CLOSE_REPEAT_ERROR_MESSAGE)
+  if (messageContent === lastMessage && ServiceConstant.CLOSE_REPEAT_ERROR_MESSAGE) return
+  nextTick(() => {
+    console.log(window.$message)
+    void window.$message?.[type](messageContent, { onAfterLeave: () => lastMessage = undefined })
+    lastMessage = messageContent
+  })
 }
 
 // 处理axios错误
@@ -24,18 +27,17 @@ export function handleAxiosError(err: AxiosError) {
   if (err.response) {
     // 请求已发出，但服务器响应的状态码错误
     const msg = ServiceConstant.STATUS_ERROR[err.response.status]
-    if (msg)
-      errorMsg = msg
+    if (msg) errorMsg = msg
     responseContent[1] = { code: err.response.status, msg: errorMsg }
   }
   else {
     // 处理请求时的错误
     const msg = ServiceConstant.AXIOS_REQUEST_ERROR[err.code as string]
-    if (msg)
-      errorMsg = msg
+    if (msg) errorMsg = msg
     responseContent[1] = { code: err.code as string, msg: errorMsg, axiosError: err }
   }
 
+  // console.log(!err.config?.isCancelMessagePrompt)
   !err.config?.isCancelMessagePrompt && handleRepeatMessage(errorMsg)
   return responseContent
 }

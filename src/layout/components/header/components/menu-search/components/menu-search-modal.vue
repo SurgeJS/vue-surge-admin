@@ -145,7 +145,7 @@ watch(visible, () => {
           </div>
           <icon icon="i-tabler:arrow-back" />
         </div>
-        <a-empty v-show="isNotFound" description="没有搜索到" />
+        <n-empty v-show="isNotFound" description="没有搜索到" />
       </div>
     </n-flex>
     <template #footer>
