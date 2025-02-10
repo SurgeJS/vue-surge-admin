@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import paginationQuery from '@/hooks/service/pagination-query.ts'
-import fakeService from '@/services/request/serves/fake'
+import fakeService from '@/services/fetch/serves/fake'
 
 interface test {
   list: any[]

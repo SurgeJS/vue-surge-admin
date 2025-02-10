@@ -7,6 +7,10 @@ declare global{
 
   type Recordable<T = any> = Record<string, T>
 
+  type MaybePromise<T> = T | Promise<T>
+
+  type AnyFunction = (...args: any[]) => any
+
   // 将 T 的每个属性类型用 MaybeRef 包裹
   type WrapWithMaybeRef<T extends Recordable> = {
     [K in keyof T]: MaybeRef<T[K]>

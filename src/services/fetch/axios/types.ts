@@ -17,10 +17,22 @@ export interface AxiosInterceptor<TDataStructure = any> {
   // 请求之前拦截器
   onBeforeRequest?: (config: AxiosRequestConfig) => void | Promise<void>
 
-  // 响应拦截器
+  /**
+   * 响应拦截器
+   * 在 onResponse 中，请不要直接抛出异常，因为下层请求捕获不到该异常。
+   * 这可能导致请求流程中断或出现未预期的错误行为。
+   * 不要出现该类似的操作：return Promise.reject(responseContent),请直接 return responseContent
+   * @param response
+   */
   onResponse?: (response: AxiosResponse<TDataStructure>) => ResponseContent<TDataStructure> | Promise<ResponseContent<TDataStructure>>
 
-  // 响应错误
+  /**
+   * 响应错误
+   * 在 onResponseError 中，请不要直接抛出异常，因为下层请求捕获不到该异常。
+   * 这可能导致请求流程中断或出现未预期的错误行为。
+   * 不要出现该类似的操作：return Promise.reject(responseContent),请直接 return responseContent
+   * @param response
+   */
   onResponseError?: (error: AxiosError) => ResponseContent | Promise<ResponseContent>
 }
 

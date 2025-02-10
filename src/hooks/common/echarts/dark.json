@@ -187,7 +187,7 @@
       "show": false,
       "lineStyle": {
         "color": [
-          "#E0E6F1"
+          "#2C2C2C"
         ]
       }
     },
@@ -222,7 +222,7 @@
       "show": true,
       "lineStyle": {
         "color": [
-          "#E0E6F1"
+          "#2C2C2C"
         ]
       }
     },
@@ -257,7 +257,7 @@
       "show": true,
       "lineStyle": {
         "color": [
-          "#E0E6F1"
+          "#2C2C2C"
         ]
       }
     },
@@ -292,7 +292,7 @@
       "show": false,
       "lineStyle": {
         "color": [
-          "#E0E6F1"
+          "#2C2C2C"
         ]
       }
     },

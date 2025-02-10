@@ -1,5 +1,5 @@
-import Axios from '@/services/request/axios'
-import service from '@/services/request/serves/index.ts'
+import Axios from '@/services/fetch/axios'
+import service from '@/services/fetch/serves/index.ts'
 import { getServicePrefixOrUrl } from '@/utils/env.ts'
 
 const fakeService = Axios.extend(service, {

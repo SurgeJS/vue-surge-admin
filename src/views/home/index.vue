@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import CountColumn from '@/views/home/count-column.vue'
+import Chart from '@/views/home/chart.vue'
+import Statistics from '@/views/home/statistics.vue'
 
 onMounted(() => {
   console.log()
@@ -7,8 +8,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="h-full">
-    <CountColumn />
+  <div class="h-full flex flex-col gap-10px">
+    <Statistics />
+    <Chart />
   </div>
 </template>
 

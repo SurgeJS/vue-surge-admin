@@ -1,4 +1,4 @@
-import type { ResponseContent } from '@/services/request/axios/types'
+import type { ResponseContent } from '@/services/fetch/axios/types'
 import type { QueryKey, UseQueryOptions } from '@tanstack/vue-query'
 import type { Ref } from 'vue'
 import { keepPreviousData, useQuery } from '@tanstack/vue-query'

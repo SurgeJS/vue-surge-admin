@@ -1,6 +1,7 @@
 import type {
   BarSeriesOption,
   LineSeriesOption,
+  PieSeriesOption,
 } from 'echarts/charts'
 import type {
   DatasetComponentOption,
@@ -42,6 +43,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 export type ECOption = ComposeOption<
   | BarSeriesOption
   | LineSeriesOption
+  | PieSeriesOption
   | TitleComponentOption
   | TooltipComponentOption
   | GridComponentOption
