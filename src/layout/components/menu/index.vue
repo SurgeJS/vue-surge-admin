@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { MenuProps } from '@/layout/components/menu/type/props.ts'
 import type { MenuMixedOption } from 'naive-ui/es/menu/src/interface'
-import useOmitProps from '@/hooks/common/use-omit-props.ts'
-import useRenderIcon from '@/hooks/components/use-render-icon.ts'
+import omitProps from '@/hooks/common/omit-props.ts'
+import renderIcon from '@/hooks/components/render-icon.ts'
 import useAppStore from '@/store/modules/app'
 
 const props = defineProps<MenuProps>()
@@ -10,8 +10,8 @@ const props = defineProps<MenuProps>()
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
-const { RenderDynamicIcon } = useRenderIcon()
-const menuProps = useOmitProps(props, ['routes'])
+const { RenderDynamicIcon } = renderIcon()
+const menuProps = omitProps(props, ['routes'])
 
 const menus = computed(() => routesToMenus(props.routes))
 

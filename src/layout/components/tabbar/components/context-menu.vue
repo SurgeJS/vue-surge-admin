@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Tab } from '@/store/modules/tab-bar/type'
 import type { PopoverTrigger } from 'naive-ui'
-import useRenderIcon from '@/hooks/components/use-render-icon'
+import renderIcon from '@/hooks/components/render-icon.ts'
 import useTabBarStore from '@/store/modules/tab-bar'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
@@ -22,7 +22,7 @@ const visible = defineModel<boolean>('visible')
 
 const tabBarStore = useTabBarStore()
 const route = useRoute()
-const { RenderUnoIcon } = useRenderIcon()
+const { RenderUnoIcon } = renderIcon()
 
 const tab = computed(() => props.tab || route)
 

@@ -33,7 +33,7 @@ declare global {
       }
     }
 
-        // 路由模型
-        type UserRoutesModel = AppRouteRecordRaw[]
+    // 路由模型
+    type UserRoutesModel = AppRouteRecordRaw[]
   }
 }

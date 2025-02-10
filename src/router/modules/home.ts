@@ -7,7 +7,7 @@ export default {
     title: '首页',
     icon: 'ant-design:area-chart-outlined',
     affixTab: true,
-    keepAlive: true,
+    // keepAlive: true,
     order: 1,
   },
 } satisfies AppRouteRecordRaw

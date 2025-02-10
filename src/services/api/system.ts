@@ -1,0 +1,9 @@
+import fakeService from '@/services/fetch/serves/fake'
+
+// 系统相关的Api
+class SystemApi {
+  // 获取统计信息
+  static getStatistics = () => fakeService.get<SystemModel.StatisticsModel>('/getSystemStatistics')
+}
+
+export default SystemApi

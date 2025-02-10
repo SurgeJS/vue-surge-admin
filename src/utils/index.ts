@@ -41,7 +41,7 @@ export function temporaryClearTransition(callback: () => void, time: number = 20
 }
 
 // 异步等待
-export async function asyncWait(millisecond: number) {
+export async function asyncWait(millisecond: number = 1000) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(undefined)
@@ -84,4 +84,9 @@ export function scrollToElement(element: HTMLElement, behavior: ScrollBehavior =
     behavior,
     block,
   })
+}
+
+// 获取图片路径
+export const getImageUrl = (path: string) => {
+  return new URL(`../assets/images/${path}`, import.meta.url).href
 }

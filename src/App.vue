@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import AppConstant from '@/constant/app.ts'
-import { useGlobalInitialize } from '@/hooks/effect/use-global-init.ts'
-import { useGlobalSubscribe } from '@/hooks/effect/use-global-subscribe.ts'
+import { useGlobalInitialize } from '@/hooks/effect/global-init.ts'
+import { globalSubscribe } from '@/hooks/effect/global-subscribe.ts'
 import useAppStore from '@/store/modules/app'
 import { dateZhCN, zhCN } from 'naive-ui'
 
@@ -11,7 +11,7 @@ const appStore = useAppStore()
 useGlobalInitialize()
 
 // 全局订阅
-useGlobalSubscribe()
+globalSubscribe()
 </script>
 
 <template>

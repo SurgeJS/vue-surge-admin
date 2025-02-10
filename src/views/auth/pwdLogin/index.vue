@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { SchemaFormExpose } from '@/components/common/SchemaForm/types/base.ts'
-import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
-import useRenderIcon from '@/hooks/components/use-render-icon'
+import type { SchemaFormExpose } from '@/components/common/schema-form/types/base.ts'
+import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
+import renderIcon from '@/hooks/components/render-icon.ts'
 import useAuthStore from '@/store/modules/auth'
 import OtherLogins from '@/views/auth/components/OtherLogins.vue'
 import { reactive } from 'vue'
 
 const authStore = useAuthStore()
 
-const { RenderUnoIcon } = useRenderIcon()
+const { RenderUnoIcon } = renderIcon()
 const [loading, setLoading] = useToggle()
 const formRef = useTemplateRef<SchemaFormExpose>('formRef')
 const router = useRouter()
@@ -94,15 +94,14 @@ async function handleLogin() {
       hide-action-button
     >
       <template #action>
-        <a-flex
+        <n-flex
           class="mb-4"
-          gap="middle"
           align="center"
           justify="space-between"
         >
           <n-checkbox>记住密码</n-checkbox>
           <span class="cursor-pointer text-primary">忘记密码？</span>
-        </a-flex>
+        </n-flex>
       </template>
       <template #submit>
         <n-button

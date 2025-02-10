@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
+import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
 import RouterConstant from '@/constant/router'
 import OtherLogins from '@/views/auth/components/OtherLogins.vue'
 import { reactive } from 'vue'

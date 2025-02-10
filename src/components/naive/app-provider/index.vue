@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { createTextVNode } from 'vue'
-
 const Content = defineComponent({
-  setup() {
+  setup(props, { slots }) {
     window.$message = useMessage()
     window.$loadingBar = useLoadingBar()
     window.$notification = useNotification()
     window.$notification = useNotification()
-    return () => createTextVNode()
+
+    return slots.default
   },
 })
 </script>
@@ -18,8 +17,9 @@ const Content = defineComponent({
       <n-message-provider>
         <n-dialog-provider>
           <n-modal-provider>
-            <content />
-            <slot />
+            <content>
+              <slot />
+            </content>
           </n-modal-provider>
         </n-dialog-provider>
       </n-message-provider>

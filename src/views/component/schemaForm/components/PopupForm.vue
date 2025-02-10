@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { DefineSchema } from '@/components/common/SchemaForm/types/common.ts'
-import { reactive } from 'vue'
+import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
 
 const [visible1, toggleVisible1] = useToggle()
 const [visible2, toggleVisible2] = useToggle()
@@ -66,7 +65,7 @@ const emailAutoComplete = computed(() => ['@gmail.com', '@163.com', '@qq.com'].m
   }
 }),
 )
-const schema = reactive<DefineSchema<typeof form.value>[]>([
+const schema = ref<DefineSchema<typeof form.value>[]>([
   {
     field: 'name.a.b',
     label: '用户昵称',

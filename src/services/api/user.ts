@@ -1,7 +1,7 @@
-import fakeService from '@/services/request/serves/fake'
+import fakeService from '@/services/fetch/serves/fake'
 
 // 用户相关的Api
-export abstract class UserApi {
+class UserApi {
   // 密码登录
   static passwordLogin = (data: UserModel.PasswordLoginParams) =>
     fakeService.post<UserModel.PasswordLoginModel>('/passwordLogin', data)
@@ -15,3 +15,5 @@ export abstract class UserApi {
   // 退出登录
   static signOut = () => fakeService.get('/signOut')
 }
+
+export default UserApi

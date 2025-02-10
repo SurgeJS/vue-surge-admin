@@ -112,7 +112,7 @@ watch(visible, () => {
         </div>
       </div>
     </template>
-    <a-empty v-else description="没有图标集" />
+    <n-empty v-else description="没有图标集" />
   </n-popover>
 </template>
 

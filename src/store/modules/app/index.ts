@@ -1,7 +1,7 @@
 import type { AppStore } from '@/store/modules/app/type'
 import type { GlobalThemeOverrides } from 'naive-ui'
 import AppConstant from '@/constant/app'
-import useBreakpoint from '@/hooks/common/use-breakpoint.ts'
+import breakpoint from '@/hooks/common/breakpoint.ts'
 import { appCache } from '@/store/caches'
 import { setCSSVariables, temporaryClearTransition, toKebabCase } from '@/utils'
 import { generate } from '@ant-design/colors'
@@ -59,7 +59,7 @@ export const initialAppStore: AppStore = {
 
 const useAppStore = defineStore('App', () => {
   const osTheme = useOsTheme()
-  const { smaller } = useBreakpoint()
+  const { smaller } = breakpoint()
 
   const appStore = reactive<AppStore>(appCache.get() || cloneDeep(initialAppStore))
   const appStoreRefs = toRefs(appStore)

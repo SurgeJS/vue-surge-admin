@@ -3,12 +3,12 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
 import { createVitePlugins } from './build/plugins'
 import { proxyConfig } from './build/proxy'
-import { wrapperMetaEnv } from './src/utils/env'
+import { getMetaEnv } from './src/utils/env'
 
 export default defineConfig(({ mode }) => {
   const root = process.cwd()
   // 获取并包装 .env 环境变量
-  const viteEnv = wrapperMetaEnv(loadEnv(mode, root))
+  const viteEnv = getMetaEnv(loadEnv(mode, root))
   return {
     root,
     base: viteEnv.VITE_PUBLIC_PATH,

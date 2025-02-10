@@ -16,6 +16,8 @@ export default defineFakeRoute([
   {
     url: '/getUserinfo',
     method: 'get',
+    // statusCode: 500,
+    timeout: 1000,
     response: () => {
       return rSuccess({
         // 权限

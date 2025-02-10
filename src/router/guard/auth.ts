@@ -20,28 +20,20 @@ function createAuthGuard(to: RouteLocationNormalized, from: RouteLocationNormali
     $state,
   } = useAuthStore()
   const { initializeTabBar } = useTabBarStore()
+
   // 处理路由鉴权模式
   const handleRouteAuthMode = async () => {
-    switch (routeAuthMode) {
-      // 前端路由鉴权模式
-      case 'web':
-        // 初始化路由和菜单
-        initFrontRouteAuth()
-        // 初始化标签栏
-        initializeTabBar($state.routes)
-        break
-        // 服务端路由鉴权模式
-      case 'service':
-        // 初始化路由和菜单
-        await initServerRouteAuth()
-        // 初始化标签栏
-        initializeTabBar($state.routes)
-        break
-    }
+    // 前端路由鉴权模式
+    if (routeAuthMode === 'web') initFrontRouteAuth()
+    // 服务端路由鉴权模式
+    if (routeAuthMode === 'service') await initServerRouteAuth()
+    // 初始化标签栏
+    initializeTabBar($state.routes)
   }
+
   // 忽略鉴权直接放行
-  if (to.meta?.ignoreAuth)
-    return next()
+  if (to.meta?.ignoreAuth) return next()
+
   // 策略守卫
   const guardTacticsAction: TacticsAction[] = [
     // 未登录
@@ -121,4 +113,5 @@ function createAuthGuard(to: RouteLocationNormalized, from: RouteLocationNormali
 
   runTacticsAction(guardTacticsAction)
 }
+
 export default createAuthGuard

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { DefineGroupSchema, GroupSchemaFormExpose } from '@/components/common/SchemaForm/types/group.ts'
-import { reactive } from 'vue'
+import type { DefineGroupSchema, GroupSchemaFormExpose } from '@/components/common/schema-form/types/group.ts'
 
 const area = [
   {
@@ -65,7 +64,7 @@ const emailAutoComplete = computed(() => ['@gmail.com', '@163.com', '@qq.com'].m
   }
 }),
 )
-const schema = reactive<DefineGroupSchema<typeof form.value>[]>([
+const schema = ref<DefineGroupSchema<typeof form.value>[]>([
   {
     title: '用户信息',
     helpMessage: '用户信息',

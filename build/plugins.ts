@@ -6,13 +6,13 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer } from 'rollup-plugin-visualizer'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import { AntDesignVueResolver, NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import compress from 'vite-plugin-compression'
 import { vitePluginFakeServer } from 'vite-plugin-fake-server'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import devTools from 'vite-plugin-vue-devtools'
-import { getServiceAddress } from '../src/utils/env'
+import { getServicePrefixOrUrl } from '../src/utils/env'
 // Vite 插件配置
 export function createVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
   return [
@@ -43,7 +43,6 @@ export function createVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
       extensions: ['vue'],
       include: [/\.vue$/, /\.vue\?vue/],
       resolvers: [
-        AntDesignVueResolver({ importStyle: false }),
         NaiveUiResolver(),
       ],
     }),
@@ -72,7 +71,7 @@ export function createVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
     viteEnv.VITE_LEGACY && legacy({ targets: ['defaults', 'not IE 11'] }),
     // 数据模拟
     viteEnv.VITE_USE_FAKE && vitePluginFakeServer({
-      basename: getServiceAddress('fake', viteEnv.VITE_SERVICE_CONFIG),
+      basename: getServicePrefixOrUrl('fake', viteEnv.VITE_SERVICE_CONFIG),
       enableProd: true,
     }),
     visualizer(),
