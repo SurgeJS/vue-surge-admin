@@ -1,12 +1,12 @@
-import type { ResponseContent } from '@/services/fetch/axios/types'
+import type { ResponseContent } from '@/services/fetch/coc-axios/types'
 import MessageConstant from '@/constant/message.ts'
 import ServiceConstant from '@/constant/service'
-import Axios from '@/services/fetch/axios'
+import CoCAxios from '@/services/fetch/coc-axios'
 import { showMessage } from '@/services/fetch/utils'
 import useAuthStore from '@/store/modules/auth'
 import { getServicePrefixOrUrl } from '@/utils/env'
 
-const service = new Axios<Result>({
+const service = new CoCAxios<Result>({
   baseURL: getServicePrefixOrUrl('main'),
   timeout: ServiceConstant.REQUEST_TIMEOUT,
   interceptor: {

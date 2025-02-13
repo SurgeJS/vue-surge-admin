@@ -1,8 +1,8 @@
-import Axios from '@/services/fetch/axios'
+import CoCAxios from '@/services/fetch/coc-axios'
 import service from '@/services/fetch/serves/index.ts'
 import { getServicePrefixOrUrl } from '@/utils/env.ts'
 
-const fakeService = Axios.extend(service, {
+const fakeService = CoCAxios.extend(service, {
   baseURL: getServicePrefixOrUrl('fake'),
 })
 

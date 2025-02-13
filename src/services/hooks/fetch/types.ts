@@ -1,12 +1,12 @@
 import type {
   ResponseContent,
   ResponseError,
-} from '@/services/fetch/axios/types.ts'
+} from '@/services/fetch/coc-axios/types.ts'
 import type { AxiosResponse } from 'axios'
 import type { DebouncedFunction } from 'es-toolkit/dist/compat/function/debounce'
 import type { EffectScope, WatchSource } from 'vue'
 
-export type ServiceFn<
+export type FetchServiceFn<
   // 数据
   TData,
   // 方法参数
@@ -182,7 +182,7 @@ export interface FetchOptions<
   /**
    * 格式化数据
    */
-  formatData?: (data: TData, params: TParams) => TFormatData
+  formatData?: (data: TData, params: TParams, response: AxiosResponse<TRawData>) => TFormatData
 
   /**
    * 请求之前执行

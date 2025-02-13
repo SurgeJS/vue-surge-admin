@@ -1,4 +1,4 @@
-import type { ResponseContent } from '@/services/fetch/axios/types'
+import type { ResponseContent } from '@/services/fetch/coc-axios/types'
 import type { QueryKey, UseQueryOptions } from '@tanstack/vue-query'
 import type { Ref } from 'vue'
 import { keepPreviousData, useQuery } from '@tanstack/vue-query'
@@ -20,7 +20,7 @@ function paginationQuery<TResponse = any, DParams extends Recordable = Recordabl
 ) {
   const keys = isString(queryKey) ? [queryKey] : queryKey
 
-  const pageNo = computed(() => query.value.pageNo)
+  const pageNo = computed(() => query.value.page)
   const pageSize = computed(() => query.value.pageSize)
 
   return useQuery<TResponse>({

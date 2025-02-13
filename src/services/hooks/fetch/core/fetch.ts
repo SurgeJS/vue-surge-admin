@@ -1,4 +1,4 @@
-import type { FetchOptions, FetchPluginHooks, ServiceFn } from '@/services/hooks/fetch/types.ts'
+import type { FetchOptions, FetchPluginHooks, FetchServiceFn } from '@/services/hooks/fetch/types.ts'
 import useFetchState from '@/services/hooks/fetch/core/state.ts'
 import { isFunction } from 'es-toolkit'
 
@@ -12,7 +12,7 @@ function useCoreFetch<
   // 原始数据
   TRawData = any,
 >(
-  service: ServiceFn<TData, TParams, TRawData>,
+  service: FetchServiceFn<TData, TParams, TRawData>,
   options: FetchOptions<TData, TParams, TFormatData, TRawData> = {},
 ) {
   type RequiredFetchPluginHoos = Required<FetchPluginHooks<TData, TParams, TFormatData, TRawData>>
@@ -114,7 +114,7 @@ function useCoreFetch<
       }
 
       // 如果格式化数据函数存在就使用格式化后的数据，不存在就使用原数据
-      const finalData = (formatData ? formatData(result, args) : result) as TFormatData
+      const finalData = (formatData ? formatData(result, args, res!) : result) as TFormatData
 
       setState({ data: finalData })
 

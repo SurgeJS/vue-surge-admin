@@ -26,13 +26,14 @@ declare interface Result<Data = any> {
 }
 
 // 分页参数
-declare type PaginationParams<DParams extends Recordable> = {
-  pageNo: number
+declare type PaginationParams<DParams extends Recordable = Recordable> = {
+  page: number
   pageSize: number
 } & DParams
 
 // 分页响应
-declare interface PaginationResponse<TResponse extends Recordable> {
-  records: TResponse[]
+declare interface Pagination<TResponse = any> {
+  list: TResponse[]
+
   total: number
 }
