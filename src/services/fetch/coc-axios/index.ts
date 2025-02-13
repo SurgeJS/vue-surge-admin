@@ -1,9 +1,10 @@
-import type { AxiosConfig, ResponseContent } from '@/services/fetch/axios/types'
+import type { AxiosConfig, ResponseContent } from '@/services/fetch/coc-axios/types'
 import type { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 import axios from 'axios'
 import { omit } from 'es-toolkit'
 
-export default class Axios<TDataStructure extends Recordable = Recordable> {
+// 约定式 Axios
+export default class CoCAxios<TDataStructure extends Recordable = Recordable> {
   public axiosInstance: AxiosInstance
 
   public axiosConfig: AxiosConfig<TDataStructure>
@@ -54,7 +55,7 @@ export default class Axios<TDataStructure extends Recordable = Recordable> {
    * @param config UnifyAxios配置
    * @return UnifyAxios 实例
    */
-  static extend<Result extends Recordable = Recordable>(instance: Axios<Result>, config?: AxiosConfig<Result>) {
-    return new Axios(Object.assign(instance.axiosConfig, config))
+  static extend<Result extends Recordable = Recordable>(instance: CoCAxios<Result>, config?: AxiosConfig<Result>) {
+    return new CoCAxios(Object.assign(instance.axiosConfig, config))
   }
 }

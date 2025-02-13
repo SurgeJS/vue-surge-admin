@@ -3,7 +3,7 @@ import type {
   FetchOptions,
   FetchPluginImplement,
   FetchResult,
-  ServiceFn,
+  FetchServiceFn,
 } from '@/services/hooks/fetch/types.ts'
 import useDebounce from '@/hooks/common/debounce.ts'
 import useThrottle from '@/hooks/common/throttle.ts'
@@ -25,7 +25,7 @@ export function useFetch<
   // 原始数据
   TRawData = any,
 >(
-  service: ServiceFn<TData, TParams, TRawData>,
+  service: FetchServiceFn<TData, TParams, TRawData>,
   options: FetchOptions<TData, TParams, TFormatData, TRawData> = {},
   plugins: FetchPluginImplement<TData, TParams, TFormatData, TRawData>[] = [],
 ): FetchResult<TData, TParams, TFormatData, TRawData> {
