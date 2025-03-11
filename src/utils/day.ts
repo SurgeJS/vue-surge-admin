@@ -9,12 +9,12 @@
 //
 // export class DayJsUtils {
 //     // 格式化日期
-//     static format(date: ConfigType = new Date(), dateFormat: DateFormat = 'YYYY-MM-DD') {
+//     static format(date: ConfigType = new Date(), dateFormat: string = 'YYYY-MM-DD') {
 //         return day(date).format(dateFormat)
 //     }
 //
 //     // 格式化当前日期
-//     static formatCurrent(dateFormat: DateFormat = 'YYYY-MM-DD') {
+//     static formatCurrent(dateFormat: string = 'YYYY-MM-DD') {
 //         return day(new Date()).format(dateFormat)
 //     }
 //

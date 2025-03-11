@@ -191,16 +191,16 @@ export interface SchemaFormCommonProps extends Partial<Omit<FormSetupProps, 'onS
   hideActionButton?: boolean
 
   // 默认日期组件格式
-  defaultDateFormat?: DateFormat
+  defaultDateFormat?: string
 
   // 默认时间组件格式
-  defaultTimeFormat?: DateFormat
+  defaultTimeFormat?: string
 
   // 默认日期组件值格式
-  defaultDateValueFormat?: DateFormat
+  defaultDateValueFormat?: string
 
   // 默认时间组件值格式
-  defaultTimeValueFormat?: DateFormat
+  defaultTimeValueFormat?: string
 
   // 校验失败时自动滚动到对应的字段
   autoScrollToFailField?: boolean
