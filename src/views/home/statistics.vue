@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import SystemApi from '@/services/api/system.ts'
-import { useFetch } from '@/services/hooks/fetch'
+import { useRequest } from 'norm-axios'
 
-const { data } = useFetch(SystemApi.getStatistics)
+const { data } = useRequest(SystemApi.getStatistics, {
+  onError: (err: Error) => console.log(err),
+})
 
 const countList = computed(() => {
   return [

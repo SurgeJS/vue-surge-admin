@@ -1,4 +1,4 @@
-import type { ComputedRef, MaybeRef } from 'vue'
+import type { MaybeRef } from 'vue'
 
 declare global{
   type Nullable<T> = T | null

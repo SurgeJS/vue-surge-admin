@@ -1,5 +1,5 @@
 import type { MessageApiInjection } from 'naive-ui/es/message/src/MessageProvider'
-import ServiceConstant from '@/constant/service'
+import ServiceConstant from '@/constant/service.ts'
 
 // 用来解决重复错误提示
 let lastMessage: string | undefined
