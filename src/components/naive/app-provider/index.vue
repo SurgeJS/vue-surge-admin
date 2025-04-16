@@ -4,7 +4,7 @@ const Content = defineComponent({
     window.$message = useMessage()
     window.$loadingBar = useLoadingBar()
     window.$notification = useNotification()
-    window.$notification = useNotification()
+    window.$dialog = useDialog()
 
     return slots.default
   },
@@ -17,9 +17,9 @@ const Content = defineComponent({
       <n-message-provider>
         <n-dialog-provider>
           <n-modal-provider>
-            <content>
+            <Content>
               <slot />
-            </content>
+            </Content>
           </n-modal-provider>
         </n-dialog-provider>
       </n-message-provider>

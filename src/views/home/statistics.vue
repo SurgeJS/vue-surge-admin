@@ -2,7 +2,9 @@
 import SystemApi from '@/services/api/system.ts'
 import { useRequest } from 'norm-axios'
 
-const { data } = useRequest(SystemApi.getStatistics)
+const { data } = useRequest(SystemApi.getStatistics, {
+  onError: (err: Error) => console.log(err),
+})
 
 const countList = computed(() => {
   return [
