@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
     resolve: {
       // 别名
       alias: {
+        '~': fileURLToPath(new URL('./', import.meta.url)),
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         '#': fileURLToPath(new URL('./types', import.meta.url)),
       },

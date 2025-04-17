@@ -1,5 +1,5 @@
 import { defineFakeRoute } from 'vite-plugin-fake-server/client'
-import { rFailure } from './utils'
+import { rSuccess } from './utils'
 
 export default defineFakeRoute([
   {
@@ -9,7 +9,7 @@ export default defineFakeRoute([
     timeout: 1000,
     statusCode: 200,
     response: () => {
-      return rFailure({
+      return rSuccess({
         // 用户总数
         userTotal: 500000,
         // 访问量

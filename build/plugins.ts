@@ -3,7 +3,6 @@ import type { PluginOption } from 'vite'
 import legacy from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import { visualizer } from 'rollup-plugin-visualizer'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
@@ -74,6 +73,5 @@ export function createVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
       basename: getServicePrefixOrUrl('fake', viteEnv.VITE_SERVICE_CONFIG),
       enableProd: true,
     }),
-    visualizer(),
   ]
 }
