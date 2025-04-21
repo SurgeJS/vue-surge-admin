@@ -207,9 +207,41 @@ const useAppStore = defineStore('App', () => {
   }
 
   // 切换主题模式
-  const toggleThemeMode = (mode?: ThemeMode) => {
-    appStore.themeMode = mode || (appStore.themeMode === 'light' ? 'dark' : 'light')
-    temporaryClearTransition(updateTheme)
+  const toggleThemeMode = (mode: ThemeMode = appStore.themeMode === 'light' ? 'dark' : 'light', clearTransition: boolean = true) => {
+    appStore.themeMode = mode
+    document.documentElement.classList.toggle('dark')
+    clearTransition ? temporaryClearTransition(updateTheme) : updateTheme()
+  }
+
+  const toggleThemeModeTransition = (event: MouseEvent, mode?: ThemeMode) => {
+    // 检查浏览器是否支持 View Transition API
+    if (!document.startViewTransition) return toggleThemeMode(mode)
+
+    // 使用 View Transition API 切换主题模式
+    const transition = document.startViewTransition(() => {
+      toggleThemeMode(mode, false)
+    })
+
+    transition.ready.then(() => {
+      const { clientX, clientY } = event
+
+      const endRadius = Math.hypot(Math.max(clientX, innerWidth - clientX), Math.max(clientY, innerHeight - clientY))
+
+      const clipPath = [`circle(0px at ${clientX}px ${clientY}px)`, `circle(${endRadius}px at ${clientX}px ${clientY}px)`]
+
+      const isDark = document.documentElement.classList.contains('dark')
+
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? clipPath.reverse() : clipPath,
+        },
+        {
+          duration: 450,
+          easing: 'ease-in',
+          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        },
+      )
+    })
   }
 
   // 切换主题模式跟随系统
@@ -241,6 +273,7 @@ const useAppStore = defineStore('App', () => {
     isSmallScreen,
     setThemeColor,
     toggleThemeMode,
+    toggleThemeModeTransition,
     toggleThemeModeFollowingSystem,
     toggleSidebarCollapsed,
     toggleMobileSidebarVisible,
