@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => {
     base: viteEnv.VITE_PUBLIC_PATH,
     plugins: createVitePlugins(viteEnv),
     server: {
-      host: true,
       port: viteEnv.VITE_PORT,
       proxy: proxyConfig(viteEnv),
     },

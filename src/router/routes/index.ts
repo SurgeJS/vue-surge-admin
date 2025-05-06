@@ -49,7 +49,7 @@ export const ROUTE_AUTH: AppRouteRecordRaw = {
 export const ROUTE_NOT_FOUND: AppRouteRecordRaw = {
   path: '/:NotFound(.*)*',
   component: () => import('@/views/404/index.vue'),
-  meta: { title: '404' },
+  meta: { title: RouterConstant.NOT_FOUND_TITLE },
 }
 
 export default [ROUTE_ROOT, ROUTE_AUTH, ROUTE_NOT_FOUND]

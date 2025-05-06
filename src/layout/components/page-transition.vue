@@ -18,7 +18,7 @@ const props = defineProps<{ name?: PageAnimationMode }>()
 // 左滑动淡入淡出
 .left-slide-fade-enter-active,
 .left-slide-fade-leave-active {
-  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  transition: .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .left-slide-fade-enter-from,
@@ -30,7 +30,7 @@ const props = defineProps<{ name?: PageAnimationMode }>()
 // 右滑动淡入淡出
 .right-slide-fade-leave-active,
 .right-slide-fade-enter-active {
-  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  transition: .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .right-slide-fade-enter-from,
@@ -42,7 +42,7 @@ const props = defineProps<{ name?: PageAnimationMode }>()
 // 缩放淡入淡出
 .zoom-fade-enter-active,
 .zoom-fade-leave-active {
-  transition: .4s cubic-bezier(.4, 0, .2, 1);
+  transition: .3s cubic-bezier(.4, 0, .2, 1);
 }
 
 .zoom-fade-leave-to,
