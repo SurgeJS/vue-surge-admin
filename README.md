@@ -1,7 +1,7 @@
 # 技术栈
 
 基于 Vue3 + Vite4 + TypeScript + Pinia + Antd4 的后台系统模板
-test
+
 ## 安装依赖
 
 ```shell
