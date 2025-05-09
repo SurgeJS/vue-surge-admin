@@ -247,7 +247,6 @@ const FormItem = defineComponent(() => {
   const renderFormItemSlots = () => {
     // 处理默认插槽
     const defaultSlot = () => {
-      // @ts-expect-error xxx
       return () => schema.value.contentSlot ? slots.default?.() : renderComponent()
     }
     // 处理label
