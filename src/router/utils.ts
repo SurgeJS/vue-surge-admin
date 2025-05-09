@@ -20,12 +20,14 @@ export class RouterUtils {
   // 默认内嵌页面
   static readonly DEFAULT_FRAME = () => import('@/layout/components/default-iframe.vue')
 
+  // 404组件
+  static readonly NOT_FOUND = () => import('@/views/404/index.vue')
+
   // 静态路由列表
   static getStaticRoutes() {
     return Object.keys(this.STATIC_ROUTES).reduce<AppRouteRecordRaw[]>((routerModules, routerKey) => {
       const router = (this.STATIC_ROUTES[routerKey] as any).default
-      if (!(router instanceof Object))
-        return routerModules
+      if (!(router instanceof Object)) return routerModules
       routerModules.push(...router)
       return routerModules
     }, [])
@@ -35,8 +37,7 @@ export class RouterUtils {
   static getRouteList() {
     return Object.keys(this.ROUTER_MODULES_LIST).reduce<AppRouteRecordRaw[]>((routerModules, routerKey) => {
       const router = (this.ROUTER_MODULES_LIST[routerKey] as any).default
-      if (!(router instanceof Object))
-        return routerModules
+      if (!(router instanceof Object)) return routerModules
       routerModules.push(router)
       return routerModules
     }, [])
@@ -86,7 +87,7 @@ export class RouterUtils {
     const viewComponent = Object.keys(this.VIEW_COMPONENTS).find(path => path === componentPath)
     if (!viewComponent) {
       console.error('未找到与路由对应的页面组件：', componentPath)
-      return undefined
+      return this.NOT_FOUND
     }
 
     const component = this.VIEW_COMPONENTS[viewComponent]

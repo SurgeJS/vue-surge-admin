@@ -35,8 +35,8 @@ const authStore = useAuthStore()
       mode="horizontal"
     />
     <n-flex :wrap="false" align="center">
-      <theme-switch :inverted="appStore.isInvertedHeader" />
       <MenuSearch />
+      <theme-switch :inverted="appStore.isInvertedHeader" />
       <FullScreen />
       <Settings />
       <Avatar />

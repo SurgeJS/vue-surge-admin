@@ -14,13 +14,13 @@ export default defineConfig(({ mode }) => {
     base: viteEnv.VITE_PUBLIC_PATH,
     plugins: createVitePlugins(viteEnv),
     server: {
-      host: true,
       port: viteEnv.VITE_PORT,
       proxy: proxyConfig(viteEnv),
     },
     resolve: {
       // 别名
       alias: {
+        '~': fileURLToPath(new URL('./', import.meta.url)),
         '@': fileURLToPath(new URL('./src', import.meta.url)),
         '#': fileURLToPath(new URL('./types', import.meta.url)),
       },

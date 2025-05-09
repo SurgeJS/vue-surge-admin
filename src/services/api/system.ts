@@ -5,7 +5,14 @@ class SystemApi {
   // 获取统计信息
   static getStatistics = () => fakeService.get<SystemModel.StatisticsModel>('/getSystemStatistics')
 
-  static getPage = (params: PaginationParams) => fakeService.post<Pagination<Recordable>>('/getTodos', params)
+  // 获取使用数量
+  static getUsageCount = () => fakeService.get<{ label: string, value: number }[]>('/getUsageCount')
+
+  // 获取技术栈
+  static getTechnologyStack = () => fakeService.get<{ name: string, value: number }[]>('/getTechnologyStack')
+
+  // 获取访问量
+  static getAccessCount = () => fakeService.get<{ label: string, value: number }[]>('/getAccessCount')
 }
 
 export default SystemApi

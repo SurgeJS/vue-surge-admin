@@ -48,5 +48,11 @@ export default {
         },
       ],
     },
+    {
+      path: 'https://norm-axios-press.pages.dev/',
+      meta: {
+        title: '约定式请求',
+      },
+    },
   ],
 } satisfies AppRouteRecordRaw

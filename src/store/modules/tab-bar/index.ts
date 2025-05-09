@@ -10,6 +10,8 @@ import { defineStore } from 'pinia'
 const useTabBarStore = defineStore('TabBar', () => {
   const route = useRoute()
 
+  const blacklist = [RouterConstant.NOT_FOUND_TITLE]
+
   const tabBar = reactive<TabBarStore>({
     // 标签栏
     tabs: [],
@@ -54,6 +56,8 @@ const useTabBarStore = defineStore('TabBar', () => {
 
   // 添加 tabBar
   const addTab = (tab: Tab) => {
+    if (blacklist.every(item => item === tab.meta.title)) return
+
     // 存在就替换，不存在就push
     isExist(tab.path)
       ? tabBar.tabs.splice(getIndex(tab.path), 1, tab)

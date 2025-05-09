@@ -2,9 +2,7 @@
 import SystemApi from '@/services/api/system.ts'
 import { useRequest } from 'norm-axios'
 
-const { data } = useRequest(SystemApi.getStatistics, {
-  onError: (err: Error) => console.log(err),
-})
+const { data } = useRequest(SystemApi.getStatistics)
 
 const countList = computed(() => {
   return [
@@ -41,7 +39,7 @@ const countList = computed(() => {
     <grid-item v-for="(item, i) in countList" :key="i" :span="4">
       <n-card hoverable>
         <div class="flex items-center gap-[10px]">
-          <icon :icon="item.icon" size="40px" />
+          <icon :icon="item.icon" size="60px" />
           <div class="flex-1">
             <div class="flex items-center justify-between text-lg font-bold">
               <n-number-animation
