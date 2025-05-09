@@ -1,7 +1,7 @@
 {
   "name": "surge-admin",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "SurgeAdmin是一个强大的的后台管理系统，基于前端最新的技术栈",
   "author": {
     "email": "419626398@qq.com",
