@@ -1,17 +1,12 @@
 // 代理类型 0:前缀 1:url
 declare type ProxyType = [ string, string ]
 
-// 多服务配置 (代理仅在开发环境有效)
-declare interface ServiceConfig {
-  // 数据模拟
-  fake: string | ProxyType
-
-  // 主服务
-  main: string | ProxyType
-
-  // 其他服务
-  other: string | ProxyType
-}
+/**
+ * 服务环境变量
+ * FAKE: 模拟数据
+ * BASE: 基础服务
+ */
+declare type ServiceRecord = 'FAKE' | 'BASE'
 
 // 后台响应结构
 declare interface Result<Data = any> {

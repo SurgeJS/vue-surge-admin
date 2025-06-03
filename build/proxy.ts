@@ -1,14 +1,16 @@
 import type { ProxyOptions } from 'vite'
+import { getAllServiceConfig } from '../src/utils/env.ts'
 
 // 代理配置
 export function proxyConfig(viteEnv: ImportMetaEnv): Recordable<string | ProxyOptions> {
-  return Object.keys(viteEnv.VITE_SERVICE_CONFIG).reduce((proxy, key) => {
-    if (typeof viteEnv.VITE_SERVICE_CONFIG[key] === 'string')
-      return proxy
+  return getAllServiceConfig(viteEnv).reduce((proxy, key) => {
+    const server = viteEnv[key]
+    if (typeof server === 'string') return proxy
     // 前缀
-    const prefix = viteEnv.VITE_SERVICE_CONFIG[key][0]
+    const prefix = server[0]
     // api地址
-    const api = viteEnv.VITE_SERVICE_CONFIG[key][1]
+    const api = server[1]
+
     proxy[prefix] = {
       target: api,
       changeOrigin: true,
