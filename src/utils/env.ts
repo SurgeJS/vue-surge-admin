@@ -27,8 +27,10 @@ export function getServicePrefixOrUrl(server: string, metaEnv?: ImportMetaEnv) {
   const env = metaEnv || getMetaEnv()
   const key = getAllServiceConfig(env).find(key => key === `${VITE_SERVICE_PREFIX}${server}`)
 
-  if (!key)
-    return console.error(`未找到该服务配置:${VITE_SERVICE_PREFIX}${server}。请检查环境配置文件！`)
+  if (!key) {
+    console.error(`未找到该服务配置:${VITE_SERVICE_PREFIX}${server}。请检查环境配置文件！`)
+    return
+  }
 
   const service = env[key] as (string | ProxyType)
 
