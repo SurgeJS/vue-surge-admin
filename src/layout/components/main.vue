@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import FullScreenLoading from '@/layout/components/full-screen-loading.vue'
 import PageTransition from '@/layout/components/page-transition.vue'
 import useAppStore from '@/store/modules/app'
 import useTabBarStore from '@/store/modules/tab-bar'
-import { computed } from 'vue'
 
 const tabBarStore = useTabBarStore()
 const appStore = useAppStore()

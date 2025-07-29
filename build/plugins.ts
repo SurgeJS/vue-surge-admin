@@ -70,7 +70,7 @@ export function createVitePlugins(viteEnv: ImportMetaEnv): PluginOption[] {
     viteEnv.VITE_LEGACY && legacy({ targets: ['defaults', 'not IE 11'] }),
     // 数据模拟
     viteEnv.VITE_USE_FAKE && vitePluginFakeServer({
-      basename: getServicePrefixOrUrl('fake', viteEnv.VITE_SERVICE_CONFIG),
+      basename: getServicePrefixOrUrl('FAKE', viteEnv),
       enableProd: true,
     }),
   ]

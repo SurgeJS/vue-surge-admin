@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { dateZhCN, zhCN } from 'naive-ui'
 import AppConstant from '@/constant/app.ts'
 import { useGlobalInitialize } from '@/hooks/effect/global-init.ts'
 import { globalSubscribe } from '@/hooks/effect/global-subscribe.ts'
 import useAppStore from '@/store/modules/app'
-import { dateZhCN, zhCN } from 'naive-ui'
 
 const appStore = useAppStore()
 

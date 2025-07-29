@@ -33,7 +33,8 @@ const [isShow, toggleShow] = useToggle()
         :duration="3"
         direction="horizontal"
 
-        appear fixed-length
+        appear
+        fixed-length
       >
         <div class="demo w-200px overflow-auto">
           <p>宽度固定</p>

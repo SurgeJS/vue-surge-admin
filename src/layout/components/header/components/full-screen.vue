@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import useAppStore from '@/store/modules/app'
 import { useFullscreen } from '@vueuse/core'
 import { computed } from 'vue'
+import useAppStore from '@/store/modules/app'
 
 const appStore = useAppStore()
 const { isFullscreen, toggle } = useFullscreen()

@@ -1,13 +1,13 @@
 import type { ResponseContent } from 'norm-axios'
+import { NormAxios } from 'norm-axios'
 import MessageConstant from '@/constant/message.ts'
 import ServiceConstant from '@/constant/service.ts'
-import { showMessage } from '@/services/serves/utils'
+import { showMessage } from '@/services/request/utils'
 import useAuthStore from '@/store/modules/auth'
 import { getServicePrefixOrUrl } from '@/utils/env'
-import { NormAxios } from 'norm-axios'
 
 const service = new NormAxios<Result>({
-  baseURL: getServicePrefixOrUrl('main'),
+  baseURL: getServicePrefixOrUrl('BASE'),
   timeout: ServiceConstant.REQUEST_TIMEOUT,
   interceptor: {
     onBeforeRequest(config) {

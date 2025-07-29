@@ -1,6 +1,6 @@
 import type { GridItemData, GridProps } from '@/components/common/grid/types'
-import responsivePropsValue from '@/components/common/grid/hooks/responsive-props-value.ts'
 import { createInjectionState } from '@vueuse/core'
+import responsivePropsValue from '@/components/common/grid/hooks/responsive-props-value.ts'
 
 const [useProvideGridContext, useGridContext] = createInjectionState((props: GridProps) => {
   const rowEl = ref<HTMLElement>()

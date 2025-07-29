@@ -1,12 +1,12 @@
 import type { AuthStore } from '@/store/modules/auth/type'
+import { cloneDeep } from 'es-toolkit'
+import { defineStore } from 'pinia'
 import RouterConstant from '@/constant/router'
 import ServiceConstant from '@/constant/service'
 import router from '@/router'
 import { RouterUtils } from '@/router/utils.ts'
 import UserApi from '@/services/api/user'
 import { tokenCache } from '@/store/caches'
-import { cloneDeep } from 'es-toolkit'
-import { defineStore } from 'pinia'
 
 const initAuth: AuthStore = {
   token: tokenCache.get(),

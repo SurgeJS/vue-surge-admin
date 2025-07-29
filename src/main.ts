@@ -1,8 +1,8 @@
+import { MotionPlugin } from '@vueuse/motion'
+import { createApp } from 'vue'
 import setupComponents from '@/components'
 import { setupRouter } from '@/router'
 import { setupStore } from '@/store'
-import { MotionPlugin } from '@vueuse/motion'
-import { createApp } from 'vue'
 import App from './App.vue'
 import '@/assets/index'
 

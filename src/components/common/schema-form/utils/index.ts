@@ -1,9 +1,9 @@
+import type { FormItemRule } from 'naive-ui/es/form/src/interface'
 import type { RulePresets, RulePresetsType, Schema } from '@/components/common/schema-form/types/common.ts'
 import type { ComponentsName } from '@/components/common/schema-form/types/component'
-import type { FormItemRule } from 'naive-ui/es/form/src/interface'
-import RegUtils from '@/utils/reg'
 import { isString } from 'es-toolkit'
 import { isArray } from 'es-toolkit/compat'
+import RegUtils from '@/utils/reg'
 
 type ComponentFunction = Record<ComponentsName, {
   // 是否映射 占位符

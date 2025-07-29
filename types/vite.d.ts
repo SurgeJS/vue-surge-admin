@@ -13,8 +13,11 @@ declare interface ImportMetaEnv {
   // 是否删除console
   readonly VITE_DELETE_CONSOLE: boolean
 
-  // 配置多个服务,需要代理就写 "[前缀,Url]" 不需要就写 "api地址"
-  readonly VITE_SERVICE_CONFIG: ServiceConfig
+  // 数据模拟
+  readonly VITE_SERVICE_FAKE: string
+
+  // 基础服务地址
+  readonly VITE_SERVICE_BASE: string | ProxyType
 
   // 是否开启fake
   readonly VITE_USE_FAKE: boolean

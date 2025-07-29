@@ -1,10 +1,10 @@
 <script lang="ts" setup>
+import { computed, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import Logo from '@/layout/components/logo.vue'
 import MixSidebarDrawers from '@/layout/components/sidebar/components/mix-sidebar/components/mix-sidebar-drawers.vue'
 import useAppStore from '@/store/modules/app'
 import useAuthStore from '@/store/modules/auth'
-import { computed, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 defineOptions({ name: 'MixSidebar' })
 

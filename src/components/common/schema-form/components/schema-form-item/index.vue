@@ -8,6 +8,9 @@ import type {
   Schema,
   UnwrapSchema,
 } from '@/components/common/schema-form/types/common.ts'
+import { isFunction, isString, isUndefined, omitBy } from 'es-toolkit'
+import { get, isArray, isNumber } from 'es-toolkit/compat'
+import { computed, isVNode, useSlots } from 'vue'
 import { useSchemaFormContext } from '@/components/common/schema-form/hooks/context.ts'
 import {
   componentFunction,
@@ -19,9 +22,6 @@ import { SCHEMA_RENDER_COMPONENTS } from '@/components/common/schema-form/utils/
 import elementIndex from '@/hooks/common/element-index.ts'
 import omitProps from '@/hooks/common/omit-props.ts'
 import renderIcon from '@/hooks/components/render-icon.ts'
-import { isFunction, isString, isUndefined, omitBy } from 'es-toolkit'
-import { get, isArray, isNumber } from 'es-toolkit/compat'
-import { computed, isVNode, useSlots } from 'vue'
 
 const props = defineProps<SchemaFormItemProps>()
 const schema = defineModel<UnwrapSchema>('schema', { required: true })

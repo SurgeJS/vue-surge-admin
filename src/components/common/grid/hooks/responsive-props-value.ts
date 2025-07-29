@@ -1,6 +1,6 @@
 import type { ResponsiveValue } from '@/components/common/grid/types'
-import AppConstant from '@/constant/app.ts'
 import { isObject } from 'es-toolkit/compat'
+import AppConstant from '@/constant/app.ts'
 /*
 * 响应式道具值
 * xs < 530

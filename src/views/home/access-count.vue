@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { ECOption } from '@/hooks/common/echarts/core.ts'
+import { useRequest } from 'norm-axios'
 import useEcharts from '@/hooks/common/echarts'
 import SystemApi from '@/services/api/system.ts'
-import { useRequest } from 'norm-axios'
 
 const { echartsDom, render } = useEcharts()
 
