@@ -1,5 +1,5 @@
-import type { SCHEMA_RENDER_COMPONENTS } from '@/components/common/schema-form/utils/components'
 import type { MaybeRef } from 'vue'
+import type { SCHEMA_RENDER_COMPONENTS } from '@/components/common/schema-form/utils/components'
 
 // 组件类型
 export type ComponentsType = typeof SCHEMA_RENDER_COMPONENTS

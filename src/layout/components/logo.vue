@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import useAppStore from '@/store/modules/app'
 import { getMetaEnv } from '@/utils/env'
-import { computed } from 'vue'
 
 const { VITE_APP_TITLE } = getMetaEnv()
 const appStore = useAppStore()

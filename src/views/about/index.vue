@@ -9,10 +9,20 @@ const column = computed(() => appStore.isSmallScreen ? 1 : 2)
 
 <template>
   <n-space vertical>
-    <n-card title="关于" bordered segmented size="small">
+    <n-card
+      title="关于"
+      bordered
+      segmented
+      size="small"
+    >
       {{ pak.description }}
     </n-card>
-    <n-card title="项目信息" bordered segmented size="small">
+    <n-card
+      title="项目信息"
+      bordered
+      segmented
+      size="small"
+    >
       <n-descriptions :column="column" label-placement="left" bordered>
         <n-descriptions-item label="版本">
           {{ pak.version }}
@@ -25,7 +35,12 @@ const column = computed(() => appStore.isSmallScreen ? 1 : 2)
         </n-descriptions-item>
       </n-descriptions>
     </n-card>
-    <n-card title="生产依赖" bordered segmented size="small">
+    <n-card
+      title="生产依赖"
+      bordered
+      segmented
+      size="small"
+    >
       <n-descriptions :column="column" label-placement="left" bordered>
         <n-descriptions-item
           v-for="(value, key) in pak.dependencies as object"
@@ -36,7 +51,12 @@ const column = computed(() => appStore.isSmallScreen ? 1 : 2)
         </n-descriptions-item>
       </n-descriptions>
     </n-card>
-    <n-card title="开发依赖" bordered segmented size="small">
+    <n-card
+      title="开发依赖"
+      bordered
+      segmented
+      size="small"
+    >
       <n-descriptions :column="column" label-placement="left" bordered>
         <n-descriptions-item
           v-for="(value, key) in pak.devDependencies as object"

@@ -1,8 +1,8 @@
 import type { RendererType } from 'echarts/types/src/util/types'
 import type { EchartsInstance, ECOption } from './core'
+import { ref, watch } from 'vue'
 import useAppStore from '@/store/modules/app'
 import { asyncWait, getCSSVariable } from '@/utils'
-import { ref, watch } from 'vue'
 import echarts from './core'
 
 function useEcharts(renderMode: RendererType = 'canvas') {

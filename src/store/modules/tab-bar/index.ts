@@ -1,11 +1,11 @@
-import type { Tab, TabBarStore } from '@/store/modules/tab-bar/type'
 import type { RouteRecordNameGeneric } from 'vue-router'
+import type { Tab, TabBarStore } from '@/store/modules/tab-bar/type'
+import { pick } from 'es-toolkit'
+import { defineStore } from 'pinia'
 import RouterConstant from '@/constant/router'
 import router from '@/router'
 import useAppStore from '@/store/modules/app'
 import { asyncWait } from '@/utils'
-import { pick } from 'es-toolkit'
-import { defineStore } from 'pinia'
 
 const useTabBarStore = defineStore('TabBar', () => {
   const route = useRoute()

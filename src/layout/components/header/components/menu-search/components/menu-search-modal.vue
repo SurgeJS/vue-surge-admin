@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { menuSearchCache } from '@/store/caches'
-import useAuthStore from '@/store/modules/auth'
 import { onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { menuSearchCache } from '@/store/caches'
+import useAuthStore from '@/store/modules/auth'
 
 export interface MenuSearchOption {
   labels: string[]

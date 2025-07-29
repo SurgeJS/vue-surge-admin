@@ -1,6 +1,6 @@
 <script setup lang="tsx">
-import type { MenuProps } from '@/layout/components/menu/type/props.ts'
 import type { MenuMixedOption } from 'naive-ui/es/menu/src/interface'
+import type { MenuProps } from '@/layout/components/menu/type/props.ts'
 import omitProps from '@/hooks/common/omit-props.ts'
 import renderIcon from '@/hooks/components/render-icon.ts'
 import useAppStore from '@/store/modules/app'

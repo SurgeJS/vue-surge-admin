@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
 import ActionButton from '@/layout/components/header/components/settings/components/ActionButton.vue'
 import FooterConfig from '@/layout/components/header/components/settings/components/FooterConfig.vue'
 import HeaderConfig from '@/layout/components/header/components/settings/components/HeaderConfig.vue'
@@ -9,7 +10,6 @@ import SidebarConfig from '@/layout/components/header/components/settings/compon
 import ThemeColor from '@/layout/components/header/components/settings/components/ThemeColor.vue'
 import ThemeMode from '@/layout/components/header/components/settings/components/ThemeMode.vue'
 import useAppStore from '@/store/modules/app'
-import { ref } from 'vue'
 
 const appStore = useAppStore()
 

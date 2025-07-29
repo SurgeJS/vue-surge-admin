@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { FormItemRule } from 'naive-ui'
 import type { SchemaFormExpose } from '@/components/common/schema-form/types/base.ts'
 import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
-import type { FormItemRule } from 'naive-ui'
 import renderIcon from '@/hooks/components/render-icon.ts'
 
 const { RenderUnoIcon } = renderIcon()

@@ -1,5 +1,5 @@
-import type { TacticsAction } from '@/utils'
 import type { NavigationGuardNext, RouteLocationNormalized } from 'vue-router'
+import type { TacticsAction } from '@/utils'
 import RouterConstant from '@/constant/router.ts'
 import { tokenCache } from '@/store/caches.ts'
 import useAuthStore from '@/store/modules/auth'

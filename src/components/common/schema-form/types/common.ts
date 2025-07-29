@@ -1,5 +1,3 @@
-import type { GridItemProps, GridProps } from '@/components/common/grid/types'
-import type { ComponentsName, ComponentsNameRef, ComponentsProps } from '@/components/common/schema-form/types/component'
 import type { FormInst, FormItemProps, FormItemRule } from 'naive-ui'
 import type { AutoCompleteGroupOption, AutoCompleteOption } from 'naive-ui/es/auto-complete/src/interface'
 import type { CascaderOption } from 'naive-ui/es/cascader/src/interface'
@@ -9,6 +7,8 @@ import type { SelectMixedOption } from 'naive-ui/es/select/src/interface'
 import type { Option } from 'naive-ui/es/transfer/src/interface'
 import type { TreeSelectOption } from 'naive-ui/es/tree-select/src/interface'
 import type { MaybeRef, UnwrapRef, VNode } from 'vue'
+import type { GridItemProps, GridProps } from '@/components/common/grid/types'
+import type { ComponentsName, ComponentsNameRef, ComponentsProps } from '@/components/common/schema-form/types/component'
 
 export interface SchemaItemData {
   // item 元素
@@ -79,14 +79,14 @@ export type SafeComponentProps<T> = T extends Recordable ? T : never
 export type FormItemPropsRefs = WrapWithMaybeRef<Omit<FormItemProps, 'label' | 'rule' | 'path' | 'required'>>
 
 // 通用的选项类型
-export type OptionType =
-  SelectMixedOption
-  | AutoCompleteOption
-  | AutoCompleteGroupOption
-  | TreeSelectOption
-  | MentionOption
-  | CascaderOption
-  | Option
+export type OptionType
+  = SelectMixedOption
+    | AutoCompleteOption
+    | AutoCompleteGroupOption
+    | TreeSelectOption
+    | MentionOption
+    | CascaderOption
+    | Option
 
 // 常用组件属性映射
 export interface CommonComponentPropsMap<

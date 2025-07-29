@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router'
+import { useTitle } from '@vueuse/core'
 import createAuthGuard from '@/router/guard/auth.ts'
 import useAppStore from '@/store/modules/app'
-import { useTitle } from '@vueuse/core'
 
 function createRouterGuard(router: Router) {
   // 跳转之前

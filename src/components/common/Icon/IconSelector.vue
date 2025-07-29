@@ -1,9 +1,9 @@
 <script lang="ts" setup>
-import { iconSetPrefix } from '@/assets/iconify'
-import { hasScrollBar } from '@/utils'
 import { listIcons } from '@iconify/vue'
 import { useToggle } from '@vueuse/core'
 import { ref } from 'vue'
+import { iconSetPrefix } from '@/assets/iconify'
+import { hasScrollBar } from '@/utils'
 
 const iconValue = defineModel<string>('value')
 
