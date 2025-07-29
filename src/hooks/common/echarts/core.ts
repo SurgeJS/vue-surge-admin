@@ -12,8 +12,6 @@ import type {
 import type {
   ComposeOption,
 } from 'echarts/core'
-import darkJSON from '@/hooks/common/echarts/dark.json'
-import lightJSON from '@/hooks/common/echarts/light.json'
 import {
   BarChart,
   LineChart,
@@ -38,6 +36,8 @@ import { // 数据集组件
 import * as echarts from 'echarts/core'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 import { CanvasRenderer } from 'echarts/renderers'
+import darkJSON from '@/hooks/common/echarts/dark.json'
+import lightJSON from '@/hooks/common/echarts/light.json'
 
 // 通过 ComposeOption 来组合出一个只有必须组件和图表的 Option 类型
 export type ECOption = ComposeOption<

@@ -1,9 +1,9 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import MixSidebar from '@/layout/components/sidebar/components/mix-sidebar/index.vue'
 import MobileSidebar from '@/layout/components/sidebar/components/mobile-sidebar.vue'
 import SidebarComponent from '@/layout/components/sidebar/components/sidebar.vue'
 import useAppStore from '@/store/modules/app'
-import { computed } from 'vue'
 
 defineOptions({ name: 'LayoutSidebar' })
 

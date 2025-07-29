@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { GridItemProps } from '@/components/common/grid/types'
 import type { CSSProperties } from 'vue'
+import type { GridItemProps } from '@/components/common/grid/types'
 import { useGridContext } from '@/components/common/grid/hooks/context.ts'
 import responsivePropsValue from '@/components/common/grid/hooks/responsive-props-value.ts'
 import { resolveItemData } from '@/components/common/grid/utils'

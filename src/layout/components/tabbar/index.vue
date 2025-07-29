@@ -1,12 +1,12 @@
 <script lang="ts" setup>
 import type { Tab } from '@/store/modules/tab-bar/type'
+import { useDebounceFn, useEventListener, useToggle } from '@vueuse/core'
+import { nextTick, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import ContextMenu from '@/layout/components/tabbar/components/context-menu.vue'
 import useAppStore from '@/store/modules/app'
 import useTabBarStore from '@/store/modules/tab-bar'
 import { scrollToElement } from '@/utils'
-import { useDebounceFn, useEventListener, useToggle } from '@vueuse/core'
-import { nextTick, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 defineOptions({ name: 'TabBar' })
 

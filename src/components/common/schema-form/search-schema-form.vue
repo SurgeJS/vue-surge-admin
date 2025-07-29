@@ -5,11 +5,11 @@ import type {
   SearchSchemaFormProps,
   SearchSchemaFormSlots,
 } from '@/components/common/schema-form/types/search.ts'
+import { take } from 'es-toolkit'
 import { useProvideSchemaFormContext } from '@/components/common/schema-form/hooks/context.ts'
 import expose from '@/components/common/schema-form/hooks/expose.ts'
 import method from '@/components/common/schema-form/hooks/method.ts'
 import omitProps from '@/hooks/common/omit-props.ts'
-import { take } from 'es-toolkit'
 
 const props = withDefaults(defineProps<SearchSchemaFormProps>(), {
   autoPlaceholder: true,

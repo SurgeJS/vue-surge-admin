@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import RouterConstant from '@/constant/router'
 import { useRouter } from 'vue-router'
+import RouterConstant from '@/constant/router'
 
 defineOptions({ name: 'NotFound' })
 const router = useRouter()

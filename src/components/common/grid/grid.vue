@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { GridProps } from '@/components/common/grid/types'
 import type { CSSProperties } from 'vue'
+import type { GridProps } from '@/components/common/grid/types'
 import { useProvideGridContext } from '@/components/common/grid/hooks/context.ts'
 import { setItemVisible } from '@/components/common/grid/utils'
 

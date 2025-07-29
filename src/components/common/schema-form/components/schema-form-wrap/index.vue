@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { SchemaFormCommonExpose, SchemaFormCommonProps } from '@/components/common/schema-form/types/common.ts'
 import type { FormInst } from 'naive-ui'
 import type { FormValidateCallback, ShouldRuleBeApplied } from 'naive-ui/es/form/src/interface'
+import type { SchemaFormCommonExpose, SchemaFormCommonProps } from '@/components/common/schema-form/types/common.ts'
+import { cloneDeep } from 'es-toolkit'
 import { useSchemaFormContext } from '@/components/common/schema-form/hooks/context.ts'
 import omitProps from '@/hooks/common/omit-props.ts'
 import { scrollToElement } from '@/utils'
-import { cloneDeep } from 'es-toolkit'
 
 const props = defineProps<SchemaFormCommonProps>()
 const { model, itemsDataMap } = useSchemaFormContext()!

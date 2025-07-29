@@ -18,7 +18,12 @@ const { VITE_APP_TITLE } = getMetaEnv()
       <theme-palette />
       <theme-switch />
     </div>
-    <n-card bordered size="large" class="auth-card w-[500px] max-xs:w-[90%]" content-class="h-full">
+    <n-card
+      bordered
+      size="large"
+      class="auth-card w-[500px] max-xs:w-[90%]"
+      content-class="h-full"
+    >
       <div class="w-h-full flex overflow-hidden">
         <div class="w-h-full flex-1 flex-shrink-0 p-[10px]">
           <router-view v-slot="{ Component, route }">

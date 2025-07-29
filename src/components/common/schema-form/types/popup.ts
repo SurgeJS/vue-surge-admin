@@ -1,12 +1,12 @@
 /* --------------弹框表单-------------- */
 
+import type { CardProps, DrawerContentProps, DrawerProps, ModalProps } from 'naive-ui'
 import type {
   SchemaFormCommonExpose,
   SchemaFormCommonProps,
   SchemaFormCommonSlots,
   UnwrapSchema,
 } from '@/components/common/schema-form/types/common.ts'
-import type { CardProps, DrawerContentProps, DrawerProps, ModalProps } from 'naive-ui'
 
 export type PopupType = 'drawer' | 'modal'
 

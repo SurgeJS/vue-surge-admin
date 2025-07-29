@@ -1,8 +1,8 @@
 <script lang="ts" setup>
+import { computed } from 'vue'
 import Menu from '@/layout/components/menu/index.vue'
 import useAppStore from '@/store/modules/app'
 import { getMetaEnv } from '@/utils/env'
-import { computed } from 'vue'
 
 interface Props {
   menus: AppRouteRecordRaw[]

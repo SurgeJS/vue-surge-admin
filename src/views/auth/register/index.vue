@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { DefineSchema } from '@/components/common/schema-form/types/common.ts'
+import { reactive } from 'vue'
 import RouterConstant from '@/constant/router'
 import OtherLogins from '@/views/auth/components/OtherLogins.vue'
-import { reactive } from 'vue'
 
 const [loading] = useToggle()
 const router = useRouter()

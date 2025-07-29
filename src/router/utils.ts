@@ -1,6 +1,6 @@
-import type { RoleEnum } from '@/enums/auth.ts'
 // 需要权限的路由模块列表
 import type { RouteRecordRaw } from 'vue-router'
+import type { RoleEnum } from '@/enums/auth.ts'
 import RouterConstant from '@/constant/router.ts'
 import { Sort } from '@/enums/common.ts'
 import { pathToPascalCase } from '@/utils'

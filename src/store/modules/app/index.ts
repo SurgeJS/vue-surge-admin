@@ -1,13 +1,13 @@
-import type { AppStore } from '@/store/modules/app/type'
 import type { GlobalThemeOverrides } from 'naive-ui'
-import AppConstant from '@/constant/app'
-import breakpoint from '@/hooks/common/breakpoint.ts'
-import { appCache } from '@/store/caches'
-import { setCSSVariables, temporaryClearTransition, toKebabCase } from '@/utils'
+import type { AppStore } from '@/store/modules/app/type'
 import { generate } from '@ant-design/colors'
 import { cloneDeep, merge } from 'es-toolkit'
 import { darkTheme, lightTheme, useOsTheme } from 'naive-ui'
 import { defineStore } from 'pinia'
+import AppConstant from '@/constant/app'
+import breakpoint from '@/hooks/common/breakpoint.ts'
+import { appCache } from '@/store/caches'
+import { setCSSVariables, temporaryClearTransition, toKebabCase } from '@/utils'
 
 // 初始APP STORE
 export const initialAppStore: AppStore = {

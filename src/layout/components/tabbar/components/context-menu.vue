@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { Tab } from '@/store/modules/tab-bar/type'
 import type { PopoverTrigger } from 'naive-ui'
-import renderIcon from '@/hooks/components/render-icon.ts'
-import useTabBarStore from '@/store/modules/tab-bar'
+import type { Tab } from '@/store/modules/tab-bar/type'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import renderIcon from '@/hooks/components/render-icon.ts'
+import useTabBarStore from '@/store/modules/tab-bar'
 
 export interface ContextMenuProps {
   trigger?: PopoverTrigger

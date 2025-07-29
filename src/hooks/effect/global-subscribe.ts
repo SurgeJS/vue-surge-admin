@@ -1,7 +1,7 @@
-import { appCache } from '@/store/caches'
-import useAppStore from '@/store/modules/app'
 import { useEventListener } from '@vueuse/core'
 import { useOsTheme } from 'naive-ui'
+import { appCache } from '@/store/caches'
+import useAppStore from '@/store/modules/app'
 
 // 全局订阅(包含事件、监听器)
 export function globalSubscribe() {

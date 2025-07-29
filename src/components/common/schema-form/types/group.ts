@@ -1,5 +1,6 @@
 /* --------------分组表单-------------- */
 
+import type { UnwrapRef } from 'vue'
 import type { GridItemProps, GridProps } from '@/components/common/grid/types'
 import type {
   DefineSchema,
@@ -9,7 +10,6 @@ import type {
 } from '@/components/common/schema-form/types/common.ts'
 // 模块表单结构
 import type { ComponentsName } from '@/components/common/schema-form/types/component.ts'
-import type { UnwrapRef } from 'vue'
 
 // 回调参数
 export interface GroupCallbackParams<

@@ -1,5 +1,6 @@
 /* --------------分步表单-------------- */
 
+import type { StepsProps } from 'naive-ui'
 import type {
   DefineSchema,
   SchemaFormCommonExpose,
@@ -8,7 +9,6 @@ import type {
 } from '@/components/common/schema-form/types/common.ts'
 // 步骤条表单结构
 import type { ComponentsName } from '@/components/common/schema-form/types/component.ts'
-import type { StepsProps } from 'naive-ui'
 
 export interface StepSchemaType<
   TForm extends Recordable = any,

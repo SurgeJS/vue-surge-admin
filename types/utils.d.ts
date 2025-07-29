@@ -1,6 +1,6 @@
 import type { MaybeRef } from 'vue'
 
-declare global{
+declare global {
   type Nullable<T> = T | null
 
   type Undefinable<T> = T | undefined

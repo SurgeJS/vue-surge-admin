@@ -1,10 +1,10 @@
 <script lang="ts" setup>
 import type { DropdownOption } from 'naive-ui/es/dropdown/src/interface'
 import type { RouteLocationMatched } from 'vue-router'
-import RouterConstant from '@/constant/router'
-import useAppStore from '@/store/modules/app'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import RouterConstant from '@/constant/router'
+import useAppStore from '@/store/modules/app'
 
 const routes = ref<DropdownOption[]>([])
 const route = useRoute()
